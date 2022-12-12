@@ -27,15 +27,15 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Productos()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PRODUCTOS_COD = Convert.ToInt32(dr["productos_cod"]),
+                            PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_COD"]),
 
                             NOMBRE = dr["nombre"].ToString(),
 
-                            PRECIO = (float)Convert.ToDecimal(dr["precio"]),
+                            PRECIO = (float)Convert.ToDecimal(dr["PRECIO"]),
 
-                            STOCK = Convert.ToInt32(dr["stock"]),
+                            STOCK = Convert.ToInt32(dr["STOCK"]),
 
-                            PROOVEDORES_COD = Convert.ToInt32(dr["provedores_cod"])
+                            
 
                         });
                 }
@@ -57,11 +57,11 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_productos", conexion);
-                    cmd.Parameters.AddWithValue("productos_cod", Oproductos.PRODUCTOS_COD);
-                    cmd.Parameters.AddWithValue("nombre", Oproductos.NOMBRE);
-                    cmd.Parameters.AddWithValue("precio", Oproductos.PRECIO);
-                    cmd.Parameters.AddWithValue("stock", Oproductos.STOCK);
-                    cmd.Parameters.AddWithValue("provedores_cod", Oproductos.PROOVEDORES_COD);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", Oproductos.PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("NOMBRE", Oproductos.NOMBRE);
+                    cmd.Parameters.AddWithValue("PRECIO", Oproductos.PRECIO);
+                    cmd.Parameters.AddWithValue("STOCK", Oproductos.STOCK);
+                    
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -91,7 +91,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_productos", conexion);
-                    cmd.Parameters.AddWithValue("ordenes_productos_cod", PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", PRODUCTOS_COD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -106,7 +106,7 @@ namespace ProyectoFinal.Datos
         }
 
         //CREATE
-        public bool guardar(Productos Oproductos)
+        public bool Guardar(Productos Oproductos)
         {
             bool respuesta;
 
@@ -119,10 +119,10 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_productos", conexion);
-                    cmd.Parameters.AddWithValue("nombre", Oproductos.NOMBRE);
-                    cmd.Parameters.AddWithValue("precio", Oproductos.PRECIO);
-                    cmd.Parameters.AddWithValue("stock", Oproductos.STOCK);
-                    cmd.Parameters.AddWithValue("provedores_cod", Oproductos.PROOVEDORES_COD);
+                    cmd.Parameters.AddWithValue("NOMBRE", Oproductos.NOMBRE);
+                    cmd.Parameters.AddWithValue("PRECIO", Oproductos.PRECIO);
+                    cmd.Parameters.AddWithValue("STOCK", Oproductos.STOCK);
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -138,7 +138,7 @@ namespace ProyectoFinal.Datos
 
         //READ BY
         //Reemplazar el (int ----) por la primary que vaya
-        public Productos obtener(int PRODUCTOS_COD)
+        public Productos Obtener(int PRODUCTOS_COD)
         {
             var Oproductos = new Productos();
             var cn = new Conexion();
@@ -155,11 +155,11 @@ namespace ProyectoFinal.Datos
                 {
                     while (dr.Read())
                     {
-                        Oproductos.PRODUCTOS_COD = Convert.ToInt32(dr["productos_cod"]);
-                        Oproductos.NOMBRE = dr["nombre"].ToString();
-                        Oproductos.PRECIO = (float)Convert.ToDecimal(dr["precio"]);
-                        Oproductos.STOCK = Convert.ToInt32(dr["stock"]);
-                        Oproductos.PROOVEDORES_COD = Convert.ToInt32(dr["provedores_cod"]);
+                        Oproductos.PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_COD"]);
+                        Oproductos.NOMBRE = dr["NOMBRE"].ToString();
+                        Oproductos.PRECIO = (float)Convert.ToDecimal(dr["PRECIO"]);
+                        Oproductos.STOCK = Convert.ToInt32(dr["STOCK"]);
+                        
                     }
                 }
             }

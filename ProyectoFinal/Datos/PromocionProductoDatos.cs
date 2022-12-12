@@ -25,11 +25,11 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new PromocionProducto()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PROMOCIONES_CODIGO = Convert.ToInt32(dr["Promociones_codigo"]),
-                            PRODUCTOS_COD = Convert.ToInt32(dr["Productos_codigo"]),
+                            PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]),
+                            PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_COD"]), //A CHECKEARR
                             NUMERO_PROMOCION = Convert.ToInt32(dr["Numero_promocion"]),
-                            FECHA_INICIO = dr["Fecha_inicio"].ToString(),
-                            FECHA_FINAL = dr["Fecha_final"].ToString()
+                            FECHA_INICIO = dr["FECHA_INICIO"].ToString(),
+                            FECHA_FINAL = dr["FECHA_FINAL"].ToString()
                         });
                 }
             }
@@ -50,11 +50,11 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_promocion_productos", conexion);
-                    cmd.Parameters.AddWithValue("Promociones_codigo", opromocionproducto.PROMOCIONES_CODIGO);
-                    cmd.Parameters.AddWithValue("Productos_codigo", opromocionproducto.PRODUCTOS_COD);
-                    cmd.Parameters.AddWithValue("Numero_promocion", opromocionproducto.NUMERO_PROMOCION);
-                    cmd.Parameters.AddWithValue("Fecha_inicio", opromocionproducto.FECHA_INICIO);
-                    cmd.Parameters.AddWithValue("Fecha_final", opromocionproducto.FECHA_FINAL);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", opromocionproducto.PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", opromocionproducto.PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("NUMERO_PROMOCION", opromocionproducto.NUMERO_PROMOCION);
+                    cmd.Parameters.AddWithValue("FECHA_INICIO", opromocionproducto.FECHA_INICIO);
+                    cmd.Parameters.AddWithValue("FECHA_FINAL", opromocionproducto.FECHA_FINAL);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -83,9 +83,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_promocion_producto", conexion);
-                    cmd.Parameters.AddWithValue("Promociones_codigo", PROMOCIONES_CODIGO);
-                    cmd.Parameters.AddWithValue("Productos_codigo", PRODUCTOS_COD);
-                    cmd.Parameters.AddWithValue("Numero_promocion", NUMERO_PROMOCION);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("NUMERO_PROMOCION", NUMERO_PROMOCION);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -113,8 +113,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_promocion_producto", conexion);
-                    cmd.Parameters.AddWithValue("Fecha_inicio", opromocionproducto.FECHA_INICIO);
-                    cmd.Parameters.AddWithValue("Fecha_final", opromocionproducto.FECHA_FINAL);
+                    cmd.Parameters.AddWithValue("FECHA_INICIO", opromocionproducto.FECHA_INICIO);
+                    cmd.Parameters.AddWithValue("FECHA_FINAL", opromocionproducto.FECHA_FINAL);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -140,20 +140,20 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_promocion_producto", conexion);
-                cmd.Parameters.AddWithValue("Promociones_codigo", PROMOCIONES_CODIGO);
-                cmd.Parameters.AddWithValue("Productos_codigo", PRODUCTOS_COD);
-                cmd.Parameters.AddWithValue("Numero_promocion", NUMERO_PROMOCION);
+                cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
+                cmd.Parameters.AddWithValue("PRODUCTOS_CODIGO", PRODUCTOS_COD);
+                cmd.Parameters.AddWithValue("NUMERO_PROMOCION", NUMERO_PROMOCION);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        opromocionproducto.PROMOCIONES_CODIGO = Convert.ToInt32(dr["Promociones_codigo"]);
-                        opromocionproducto.PRODUCTOS_COD = Convert.ToInt32(dr["Productos_codigo"]);
-                        opromocionproducto.NUMERO_PROMOCION = Convert.ToInt32(dr["Numero_promocion"]);
-                        opromocionproducto.FECHA_INICIO = dr["Fecha_inicio"].ToString();
-                        opromocionproducto.FECHA_FINAL = dr["Fecha_final"].ToString();
+                        opromocionproducto.PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]);
+                        opromocionproducto.PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_CODIGO"]);
+                        opromocionproducto.NUMERO_PROMOCION = Convert.ToInt32(dr["NUMERO_PROMOCION"]);
+                        opromocionproducto.FECHA_INICIO = dr["FECHA_INICIO"].ToString();
+                        opromocionproducto.FECHA_FINAL = dr["FECHA_FINAL"].ToString();
                     }
                 }
             }

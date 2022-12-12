@@ -1,15 +1,13 @@
-﻿@model List<Usuarios>
+﻿@model List<Empleados>
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Listar</h1>
-
 <div class="card">
     <div class="card-header">
-        Lista de usuarios
-    </div>
+        Lista de empleados
     </div>
     <div class="card-body">
         <a asp-action="GuardarForm" asp-controller="CRUD" class="btn btn-success">Crear nuevo</a>
@@ -17,23 +15,22 @@
         <table class="d-lg-table table-bordered">
             <thead>
                 <tr>
-                    <th>Correo</th>
-                    <th>Contraseña</th>
-                    <th></th>
+                    
+                    <th>Tipo Empleado</th>                   
+                    <th>Nombre</th>
+                    <th>Apellido</th>                    
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.CORREO</td>
-                            <td>@item.CONTRASEÑA</td>
-                            <td>   </td>
-                        </tr>
-                    }
+                {
+                    <tr>                        
+                        <td>@item.TIPO_EMPLEADO</td>                        
+                        <td>@item.NOMBRE</td>
+                        <td>@item.APELLIDO</td>                        
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
-
-               
-
+</div>

@@ -26,9 +26,9 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Categorias()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            CATEGORIA_CODIGO = Convert.ToInt32(dr["Categoria_codigo"]),
+                            CATEGORIA_CODIGO = Convert.ToInt32(dr["CATEGORIA_CODIGO"]),
 
-                            DETALLE = dr["Detalle"].ToString()
+                            DETALLE = dr["DETALLE"].ToString()
                         });                                        
                 }
             }
@@ -49,8 +49,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_Editar_categorias", conexion);
-                    cmd.Parameters.AddWithValue("Categoria_codigo", ocategorias.CATEGORIA_CODIGO);
-                    cmd.Parameters.AddWithValue("Detalle", ocategorias.DETALLE);
+                    cmd.Parameters.AddWithValue("CATEGORIA_CODIGO", ocategorias.CATEGORIA_CODIGO);
+                    cmd.Parameters.AddWithValue("DETALLE", ocategorias.DETALLE);
                     cmd.CommandType= CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -78,7 +78,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_Eliminar_categorias", conexion);
-                    cmd.Parameters.AddWithValue("Categoria_codigo", CATEGORIA_CODIGO);
+                    cmd.Parameters.AddWithValue("CATEGORIA_CODIGO", CATEGORIA_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -106,7 +106,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_categorias", conexion);
-                    cmd.Parameters.AddWithValue("Detalle", ocategorias.DETALLE);
+                    cmd.Parameters.AddWithValue("DETALLE", ocategorias.DETALLE);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -132,15 +132,15 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_categorias", conexion);
-                cmd.Parameters.AddWithValue("Categoria_codigo", CATEGORIA_CODIGO);
+                cmd.Parameters.AddWithValue("CATEGORIA_CODIGO", CATEGORIA_CODIGO);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        ocategorias.CATEGORIA_CODIGO = Convert.ToInt32(dr["Categoria_codigo"]);
-                        ocategorias.DETALLE = dr["Detalle"].ToString();
+                        ocategorias.CATEGORIA_CODIGO = Convert.ToInt32(dr["CATEGORIA_CODIGO"]);
+                        ocategorias.DETALLE = dr["DETALLE"].ToString();
                     }
                 }
             }

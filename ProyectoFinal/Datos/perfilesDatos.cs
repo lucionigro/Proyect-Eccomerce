@@ -27,9 +27,9 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Perfiles()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PERFILES_CODIGO = Convert.ToInt32(dr["perfiles_codigo"]),
+                            PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"]),
 
-                            DETALLE = dr["detalle"].ToString()
+                            DETALLE = dr["DETALLE"].ToString()
 
                         });
                 }
@@ -51,8 +51,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_perfiles", conexion);
-                    cmd.Parameters.AddWithValue("perfiles_codigo", Operfiles.PERFILES_CODIGO);
-                    cmd.Parameters.AddWithValue("detalle", Operfiles.DETALLE);
+                    cmd.Parameters.AddWithValue("PERFILES.CODIGO", Operfiles.PERFILES_CODIGO);
+                    cmd.Parameters.AddWithValue("DETALLE", Operfiles.DETALLE);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_perfiles", conexion);
-                    cmd.Parameters.AddWithValue("perfiles_codigo", PERFILES_CODIGO);
+                    cmd.Parameters.AddWithValue("PERFILES_CODIGO", PERFILES_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -97,7 +97,7 @@ namespace ProyectoFinal.Datos
         }
 
         //CREATE
-        public bool guardar(Perfiles Operfiles)
+        public bool Guardar(Perfiles Operfiles)
         {
             bool respuesta;
 
@@ -110,7 +110,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_perfiles", conexion);
-                    cmd.Parameters.AddWithValue("detalle", Operfiles.DETALLE);
+                    cmd.Parameters.AddWithValue("DETALLE", Operfiles.DETALLE);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -126,7 +126,7 @@ namespace ProyectoFinal.Datos
 
         //READ BY
         //Reemplazar el (int ----) por la primary que vaya
-        public Perfiles obtener(int PERFILES_CODIGO)
+        public Perfiles Obtener(int PERFILES_CODIGO)
         {
             var Operfiles = new Perfiles();
             var cn = new Conexion();
@@ -136,15 +136,15 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_perfiles", conexion);
-                cmd.Parameters.AddWithValue("perfiles_codigo", PERFILES_CODIGO);
+                cmd.Parameters.AddWithValue("PERFILES_CODIGO", PERFILES_CODIGO);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        Operfiles.PERFILES_CODIGO = Convert.ToInt32(dr["perfiles_codigo"]);
-                        Operfiles.DETALLE = dr["detalle"].ToString();
+                        Operfiles.PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"]);
+                        Operfiles.DETALLE = dr["DETALLE"].ToString();
                     }
                 }
             }

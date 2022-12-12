@@ -22,13 +22,13 @@ namespace ProyectoFinal.Datos
                     while (dr.Read())
                         oLista.Add(new Empleados()
                         {
-                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["Empleados_cod"]),
-                            SUPERVISOR_CODIGO = Convert.ToInt32(dr["Supervisor_cod"]),
-                            TIPO_EMPLEADO = dr["Tipo_empleado"].ToString(),
-                            APELLIDO_SUPERVISOR = dr["Apellido_supervisor"].ToString(),
-                            NOMBRE = dr["Nombre"].ToString(),
-                            APELLIDO = dr["Apellido"].ToString(),                            
-                            USUARIOS_CODIGO = Convert.ToInt32(dr["Usuarios_codigo"])
+                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]),
+                            SUPERVISOR_CODIGO = Convert.ToInt32(dr["SUPERVISOR_CODIGO"]),
+                            TIPO_EMPLEADO = dr["TIPO_EMPLEADO"].ToString(),
+                            APELLIDO_SUPERVISOR = dr["APELLIDO_SUPERVISOR"].ToString(),
+                            NOMBRE = dr["NOMBRE"].ToString(),
+                            APELLIDO = dr["APELLIDO"].ToString(),                            
+                            //USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"])
                         });
                 }
             }

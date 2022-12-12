@@ -26,11 +26,11 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Promociones()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PROMOCIONES_CODIGO = Convert.ToInt32(dr["Promociones_codigo"]),
+                            PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]),
 
-                            NOMBRE = dr["Nombre"].ToString(),
+                            NOMBRE = dr["NOMBRE"].ToString(),
 
-                            DESCUENTO = Convert.ToDecimal(dr["Descuento"])
+                            DESCUENTO = Convert.ToDecimal(dr["DESCUENTO"])
                         });
                 }
             }
@@ -51,9 +51,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_promociones", conexion);
-                    cmd.Parameters.AddWithValue("Promociones_codigo", opromociones.PROMOCIONES_CODIGO);
-                    cmd.Parameters.AddWithValue("Nombre", opromociones.NOMBRE);
-                    cmd.Parameters.AddWithValue("Descuento", opromociones.DESCUENTO);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", opromociones.PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("NOMBRE", opromociones.NOMBRE);
+                    cmd.Parameters.AddWithValue("DESCUENTO", opromociones.DESCUENTO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -82,7 +82,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_promociones", conexion);
-                    cmd.Parameters.AddWithValue("Promociones_codigo", PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -110,8 +110,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_promociones", conexion);
-                    cmd.Parameters.AddWithValue("Nombre", opromociones.NOMBRE);
-                    cmd.Parameters.AddWithValue("Descuento", opromociones.DESCUENTO);
+                    cmd.Parameters.AddWithValue("NOMBRE", opromociones.NOMBRE);
+                    cmd.Parameters.AddWithValue("DESCUENTO", opromociones.DESCUENTO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -137,16 +137,16 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_promociones", conexion);
-                cmd.Parameters.AddWithValue("Promociones_codigo", PROMOCIONES_CODIGO);
+                cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        opromociones.PROMOCIONES_CODIGO = Convert.ToInt32(dr["Promociones_codigo"]);
-                        opromociones.NOMBRE = dr["Detalle"].ToString();
-                        opromociones.DESCUENTO = Convert.ToDecimal(dr["Descuento"]);
+                        opromociones.PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]);
+                        opromociones.NOMBRE = dr["NOMBRE"].ToString();
+                        opromociones.DESCUENTO = Convert.ToDecimal(dr["DESCUENTO"]);
                     }
                 }
             }

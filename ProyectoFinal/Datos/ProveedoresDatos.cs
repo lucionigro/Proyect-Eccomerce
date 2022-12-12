@@ -25,9 +25,9 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Proveedores()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PROVEEDORES_COD = Convert.ToInt32(dr["Proveedores_codigo"]),
-                            NOMBRE = dr["Nombre"].ToString(),
-                            APELLIDO = dr["Apellido"].ToString(),
+                            PROVEEDORES_COD = Convert.ToInt32(dr["PROVEEDORES_COD"]),
+                            NOMBRE = dr["NOMBRE"].ToString(),
+                            APELLIDO = dr["APELLIDO"].ToString(),
                             CUIT = Convert.ToInt32(dr["CUIT"])
                         });
                 }
@@ -49,9 +49,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_proveedores", conexion);
-                    cmd.Parameters.AddWithValue("Proveedores_codigo", oproveedores.PROVEEDORES_COD);
-                    cmd.Parameters.AddWithValue("Nombre", oproveedores.NOMBRE);
-                    cmd.Parameters.AddWithValue("Apellido", oproveedores.APELLIDO);
+                    cmd.Parameters.AddWithValue("PROVEEDORES_COD", oproveedores.PROVEEDORES_COD);
+                    cmd.Parameters.AddWithValue("NOMBRE", oproveedores.NOMBRE);
+                    cmd.Parameters.AddWithValue("APELLIDO", oproveedores.APELLIDO);
                     cmd.Parameters.AddWithValue("CUIT", oproveedores.CUIT);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -81,7 +81,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_proveedores", conexion);
-                    cmd.Parameters.AddWithValue("Proveedores_codigo", PROVEEDORES_COD);
+                    cmd.Parameters.AddWithValue("PROVEEDORES_COD", PROVEEDORES_COD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -109,8 +109,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_proveedores", conexion);
-                    cmd.Parameters.AddWithValue("Nombre", oproveedores.NOMBRE);
-                    cmd.Parameters.AddWithValue("Apellido", oproveedores.APELLIDO);
+                    cmd.Parameters.AddWithValue("NOMBRE", oproveedores.NOMBRE);
+                    cmd.Parameters.AddWithValue("APELLIDO", oproveedores.APELLIDO);
                     cmd.Parameters.AddWithValue("CUIT", oproveedores.CUIT);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -137,16 +137,16 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_proveedores", conexion);
-                cmd.Parameters.AddWithValue("Proveedores_codigo", PROVEEDORES_COD);
+                cmd.Parameters.AddWithValue("PROVEEDORES_COD", PROVEEDORES_COD);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        oproveedores.PROVEEDORES_COD = Convert.ToInt32(dr["Proveedores_codigo"]);
-                        oproveedores.NOMBRE = dr["Nombre"].ToString();
-                        oproveedores.APELLIDO = dr["Apellido"].ToString();
+                        oproveedores.PROVEEDORES_COD = Convert.ToInt32(dr["PROVEEDORES_COD"]);
+                        oproveedores.NOMBRE = dr["NOMBRE"].ToString();
+                        oproveedores.APELLIDO = dr["APELLIDO"].ToString();
                         oproveedores.CUIT = Convert.ToInt32(dr["CUIT"]);
                     }
                 }

@@ -23,11 +23,10 @@ namespace ProyectoFinal.Datos
                     while (dr.Read())
                         oLista.Add(new Ordenes()
                         {
-                            ORDENES_COD = Convert.ToInt32(dr["Ordenes_cod"]),                            
-                            VENDEDOR = dr["Vendedor"].ToString(),
-                            FECHA_ENTREGA = dr["Fecha_entrega"].ToString(),                            
-                            CLIENTES_COD = Convert.ToInt32(dr["Clientes_cod"]),
-                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["Empleados_cod"])                            
+                            ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),                            
+                            VENDEDOR = dr["VENDEDOR"].ToString(),
+                            FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString(),                            
+                                                       
                         });
                 }
             }
@@ -46,11 +45,9 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_editar_ordenes", conexion);
-                    cmd.Parameters.AddWithValue("Ordenes_cod", oordenes.ORDENES_COD);                    
-                    cmd.Parameters.AddWithValue("Vendedor", oordenes.VENDEDOR);                    
-                    cmd.Parameters.AddWithValue("Fecha_entrega", oordenes.FECHA_ENTREGA);                    
-                    cmd.Parameters.AddWithValue("Clientes_cod", oordenes.CLIENTES_COD);                    
-                    cmd.Parameters.AddWithValue("Empleados_cod", oordenes.EMPLEADOS_CODIGO);                    
+                    cmd.Parameters.AddWithValue("ORDENES_COD", oordenes.ORDENES_COD);                    
+                    cmd.Parameters.AddWithValue("VENDEDOR", oordenes.VENDEDOR);                    
+                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);                                                           
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -76,7 +73,7 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_eliminar_ordenes", conexion);
-                    cmd.Parameters.AddWithValue("Ordenes_cod", ORDENES_COD);
+                    cmd.Parameters.AddWithValue("ORDENES_COD", ORDENES_COD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -102,10 +99,8 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_guardar_ordenes", conexion);
-                    cmd.Parameters.AddWithValue("Vendedor", oordenes.VENDEDOR);                    
-                    cmd.Parameters.AddWithValue("Fecha_entrega", oordenes.FECHA_ENTREGA);                    
-                    cmd.Parameters.AddWithValue("Clientes_cod", oordenes.CLIENTES_COD);                    
-                    cmd.Parameters.AddWithValue("Empleados_cod", oordenes.EMPLEADOS_CODIGO);                                        
+                    cmd.Parameters.AddWithValue("VENDEDOR", oordenes.VENDEDOR);                    
+                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);                                                                        
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -129,18 +124,16 @@ namespace ProyectoFinal.Datos
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("sp_obtener_ordenes", conexion);
-                cmd.Parameters.AddWithValue("Ordenes_cod", ORDENES_COD);
+                cmd.Parameters.AddWithValue("ORDENES_COD", ORDENES_COD);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        oordenes.ORDENES_COD = Convert.ToInt32(dr["Ordenes_cod"]);                        
-                        oordenes.VENDEDOR = dr["Vendedor"].ToString();
-                        oordenes.FECHA_ENTREGA = dr["Fecha_entrega"].ToString();                        
-                        oordenes.CLIENTES_COD = Convert.ToInt32(dr["Clientes_cod"]);
-                        oordenes.EMPLEADOS_CODIGO = Convert.ToInt32(dr["Empleados_cod"]);
+                        oordenes.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);                        
+                        oordenes.VENDEDOR = dr["VENDEDOR"].ToString();
+                        oordenes.FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString();         
                     }
                 }
             }

@@ -25,10 +25,9 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Usuarios()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            USUARIOS_CODIGO = Convert.ToInt32(dr["Usuarios_codigo"]),
-                            CONTRASEÑA = dr["Contraseña"].ToString(),
-                            PERFILES_CODIGO = Convert.ToInt32(dr["Perfiles_codigo"]),
-                            CORREO = dr["Correo"].ToString()
+                            USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
+                            CONTRASEÑA = dr["CONTRASEÑA"].ToString(),                            
+                            CORREO = dr["CORREO"].ToString()
                         });
                 }
             }
@@ -49,10 +48,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_usuarios", conexion);
-                    cmd.Parameters.AddWithValue("Usuarios_codigo", ousuarios.USUARIOS_CODIGO);
-                    cmd.Parameters.AddWithValue("Contraseña", ousuarios.CONTRASEÑA);
-                    cmd.Parameters.AddWithValue("Perfiles_codigo", ousuarios.PERFILES_CODIGO);
-                    cmd.Parameters.AddWithValue("Correo", ousuarios.CORREO);
+                    cmd.Parameters.AddWithValue("USUARIOS_CODIGO", ousuarios.USUARIOS_CODIGO);
+                    cmd.Parameters.AddWithValue("CONTRASEÑA", ousuarios.CONTRASEÑA);                    
+                    cmd.Parameters.AddWithValue("CORREO", ousuarios.CORREO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -81,7 +79,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_usuarios", conexion);
-                    cmd.Parameters.AddWithValue("Usuarios_codigo", USUARIOS_CODIGO);
+                    cmd.Parameters.AddWithValue("USUARIOS_CODIGO", USUARIOS_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -109,9 +107,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_usuarios", conexion);
-                    cmd.Parameters.AddWithValue("Contraseña", ousuarios.CONTRASEÑA);
-                    cmd.Parameters.AddWithValue("Perfiles_codigo", ousuarios.PERFILES_CODIGO);
-                    cmd.Parameters.AddWithValue("Correo", ousuarios.CORREO);
+                    cmd.Parameters.AddWithValue("CONTRASEÑA", ousuarios.CONTRASEÑA);
+                    cmd.Parameters.AddWithValue("PERFILES_CODIGO", ousuarios.PERFILES_CODIGO);
+                    cmd.Parameters.AddWithValue("CORREO", ousuarios.CORREO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -137,17 +135,17 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_usuarios", conexion);
-                cmd.Parameters.AddWithValue("usuarios_codigo", USUARIOS_CODIGO);
+                cmd.Parameters.AddWithValue("USUARIOS_CODIGO", USUARIOS_CODIGO);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        ousuarios.USUARIOS_CODIGO = Convert.ToInt32(dr["usuarios_codigo"]);
-                        ousuarios.CONTRASEÑA = dr["Contraseña"].ToString();
-                        ousuarios.CORREO = dr["Correo"].ToString();
-                        ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["Detalle"]);
+                        ousuarios.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);
+                        ousuarios.CONTRASEÑA = dr["CONTRASEÑA"].ToString();
+                        ousuarios.CORREO = dr["CORREO"].ToString();
+                        ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["DETALLE"]);
                     }
                 }
             }
