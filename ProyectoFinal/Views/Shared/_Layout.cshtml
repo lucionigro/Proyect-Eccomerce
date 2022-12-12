@@ -22,19 +22,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Mi cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CRUD" asp-action="GuardarForm">Empleados</a>
-                        </li>
-                        <li class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                            <ul class="navbar-nav">
+                        <li class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav text-dark">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Categorias
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                    <ul class="dropdown-menu dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Tv, Audio y Video</a></li>
                                         <li><a class="dropdown-item" href="#">Celulares, Notebook y Tecnologia</a></li>
                                         <li><a class="dropdown-item" href="#">Hogar, Muebles y Jardin</a></li>
@@ -44,10 +38,25 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="collapse navbar-collapse text-dark" id="navbarNavDropdown">
+                            <ul class="navbar-nav text-dark">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Listar">Empleados</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Busca</button>
                         </form>
+                        
                     </ul>
                 </div>
             </div>

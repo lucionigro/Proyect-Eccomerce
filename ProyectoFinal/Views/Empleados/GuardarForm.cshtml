@@ -1,0 +1,33 @@
+﻿@model Empleados
+@{
+    ViewData["Title"] = "GuardarForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Empleados
+    </div>
+    <div class="card-body">
+        <form>                        
+            <div class="mb-3">
+                <label class="form-label">Tipo Empleado</label>
+                <input asp-for="TIPO_EMPLEADO" type="text" class="form-control">
+                <span asp-validation-for="TIPO_EMPLEADO" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="NOMBRE" type="text" class="form-control">
+                <span asp-validation-for="NOMBRE" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input asp-for="APELLIDO" type="text" class="form-control">
+                <span asp-validation-for="APELLIDO" class="text-danger"></span>
+            </div>           
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-action="Listar" asp-controller="Empleados" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>

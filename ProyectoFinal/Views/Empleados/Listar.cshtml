@@ -10,24 +10,27 @@
         Lista de empleados
     </div>
     <div class="card-body">
-        <a asp-action="GuardarForm" asp-controller="CRUD" class="btn btn-success">Crear nuevo</a>
+        <a asp-action="GuardarForm" asp-controller="Empleados" class="btn btn-success">Crear nuevo</a>
         <hr />
         <table class="d-lg-table table-bordered">
             <thead>
                 <tr>
-                    
-                    <th>Tipo Empleado</th>                   
+
+                    <th>Tipo Empleado</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>                    
+                    <th>Apellido</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>                        
-                        <td>@item.TIPO_EMPLEADO</td>                        
+                    <tr>
+                        <td>@item.TIPO_EMPLEADO</td>
                         <td>@item.NOMBRE</td>
-                        <td>@item.APELLIDO</td>                        
+                        <td>@item.APELLIDO</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO">Editar</a>
+                        </td>
                     </tr>
                 }
             </tbody>
