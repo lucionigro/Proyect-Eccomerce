@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Productos>
+
+@{
+    ViewData["Title"] = "Listarpro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Listarpro</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCTOS_COD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRECIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STOCK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROOVEDORES_COD)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRODUCTOS_COD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRECIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STOCK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROOVEDORES_COD)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@model Usuarios
+@{
+    ViewData["Title"] = "GuardarForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear usuario
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                <input asp-for="CORREO" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <span asp-validation-for="CORREO" class="text-danger"></span>
+                <div id="emailHelp" class="form-text">Nunca compartiremos tu correo con nadie.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input asp-for="CONTRASEÑA" class="form-control" id="exampleInputPassword1">
+                <span asp-validation-for="CONTRASEÑA" class="text-danger"></span>
+            </div>            
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="CRUD" class="btn btn-warning">Ver lista</a>
+        </form>       
+    </div>
+</div>
+
+
+
+
