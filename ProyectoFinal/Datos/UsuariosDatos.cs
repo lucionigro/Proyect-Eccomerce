@@ -25,7 +25,7 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Usuarios()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
+                            //USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
                             CONTRASEÑA = dr["CONTRASEÑA"].ToString(),                            
                             CORREO = dr["CORREO"].ToString()
                         });
