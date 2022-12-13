@@ -6,12 +6,17 @@ namespace ProyectoFinal.Controllers
 {
     public class EmpleadosController : Controller
     {
+        //Primero se define al objeto tipo EmpleadoDatos y se lo llama:
         EmpleadosDatos empleadosDatos = new EmpleadosDatos();
+
+        //Despues de cambiar por los datos correspondientes, click derecho en Listar y crear vista razor
         public IActionResult Listar()
         {
             var oLista = empleadosDatos.Listar();
             return View(oLista);
         }
+        //Click derecho en Guardarform y añadir vista
+        //Esta vista solamente devuelve la Lista a guardar
         public IActionResult GuardarForm()
         {
             return View();
@@ -34,7 +39,7 @@ namespace ProyectoFinal.Controllers
                 return View();
             }
         }
-
+        //lo mismo que en los otros dos :D
         public IActionResult Editar(int EMPLEADOS_CODIGO)
         {
             var oempleados = empleadosDatos.Obtener(EMPLEADOS_CODIGO);
