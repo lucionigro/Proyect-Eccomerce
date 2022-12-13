@@ -1,4 +1,4 @@
-﻿@model List<Empleados>
+﻿@model List<Productos>
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,30 +6,30 @@
 
 <div class="card">
     <div class="card-header">
-        Lista de empleados
+        Lista de productos
     </div>
     <div class="card-body">
-        <a asp-action="GuardarForm" asp-controller="Empleados" class="btn btn-success">Crear nuevo</a>
+        <a asp-action="GuardarForm" asp-controller="Productos" class="btn btn-success">Crear nuevo</a>
         <hr />
         <table class="d-lg-table table-bordered">
             <thead>
                 <tr>
 
-                    <th>Tipo Empleado</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.TIPO_EMPLEADO</td>
                         <td>@item.NOMBRE</td>
-                        <td>@item.APELLIDO</td>
+                        <td>@item.PRECIO</td>
+                        <td>@item.STOCK</td>
                         <td>
-                            <a asp-action="Editar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO">Editar</a>
-                            <a asp-action="Eliminar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Eliminar</a>
                         </td>
                     </tr>
                 }

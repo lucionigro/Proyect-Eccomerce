@@ -26,8 +26,7 @@ namespace ProyectoFinal.Datos
                         {
                             //reemplazen por los valores de la columna, sea string o int
                             //USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
-                            CONTRASEÑA = dr["CONTRASEÑA"].ToString(),                            
-                            CORREO = dr["CORREO"].ToString()
+                            
                         });
                 }
             }
@@ -49,8 +48,6 @@ namespace ProyectoFinal.Datos
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_usuarios", conexion);
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", ousuarios.USUARIOS_CODIGO);
-                    cmd.Parameters.AddWithValue("CONTRASEÑA", ousuarios.CONTRASEÑA);                    
-                    cmd.Parameters.AddWithValue("CORREO", ousuarios.CORREO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -107,9 +104,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_usuarios", conexion);
-                    cmd.Parameters.AddWithValue("CONTRASEÑA", ousuarios.CONTRASEÑA);
+                   
                     cmd.Parameters.AddWithValue("PERFILES_CODIGO", ousuarios.PERFILES_CODIGO);
-                    cmd.Parameters.AddWithValue("CORREO", ousuarios.CORREO);
+                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -142,10 +139,8 @@ namespace ProyectoFinal.Datos
                 {
                     while (dr.Read())
                     {
-                        ousuarios.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);
-                        ousuarios.CONTRASEÑA = dr["CONTRASEÑA"].ToString();
-                        ousuarios.CORREO = dr["CORREO"].ToString();
-                        ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["DETALLE"]);
+                        ousuarios.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);                        
+                        ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"]);
                     }
                 }
             }

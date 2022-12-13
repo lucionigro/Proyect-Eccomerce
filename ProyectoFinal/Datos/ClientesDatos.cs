@@ -30,6 +30,7 @@ namespace ProyectoFinal.Datos
                             TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString(),
                             CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]),
                             RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString(),
+                            CONTRASEÑA = dr["CONTRASEÑA"].ToString(),
                             
                         });
                 }
@@ -56,6 +57,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
+                    cmd.Parameters.AddWithValue("CONTRASEÑA", oclientes.CONTRASEÑA);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -114,6 +116,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
+                    cmd.Parameters.AddWithValue("CONTRASEÑA", oclientes.CONTRASEÑA);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -152,6 +155,7 @@ namespace ProyectoFinal.Datos
                         oclientes.TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString();
                         oclientes.CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]);
                         oclientes.RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString();
+                        oclientes.CONTRASEÑA = dr["CONTRASEÑA"].ToString();
                         
                     }
                 }

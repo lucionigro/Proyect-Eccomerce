@@ -14,5 +14,7 @@ namespace ProyectoFinal.Models
         public string? RAZON_SOCIAL { get; set; }
         public int USUARIOS_CODIGO { get; set; }
 
+        public string? CONTRASEÑA { get; set; }
+
     }
 }

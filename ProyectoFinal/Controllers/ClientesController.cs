@@ -4,12 +4,12 @@ using ProyectoFinal.Datos;
 
 namespace ProyectoFinal.Controllers
 {
-    public class UsuariosController : Controller
+    public class ClientesController : Controller
     {
-        UsuariosDatos usuariosDatos = new UsuariosDatos();
+       ClientesDatos clientesDatos = new ClientesDatos();
         public IActionResult Listar()
         {
-            var oLista = usuariosDatos.Listar();
+            var oLista = clientesDatos.Listar();
             return View(oLista);
         }
         public IActionResult GuardarForm()
@@ -17,13 +17,13 @@ namespace ProyectoFinal.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GuardarNuevo(Usuarios ousuarios)
+        public IActionResult GuardarNuevo(Clientes oclientes)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var respuesta = usuariosDatos.Guardar(ousuarios);
+            var respuesta = clientesDatos.Guardar(oclientes);
 
             if (respuesta)
             {
@@ -35,20 +35,20 @@ namespace ProyectoFinal.Controllers
             }
         }
 
-        public IActionResult Editar(int USUARIOS_CODIGO)
+        public IActionResult Editar(int CLIENTES_COD)
         {
-            var ousuarios = usuariosDatos.Obtener(USUARIOS_CODIGO);
+            var ousuarios = clientesDatos.Obtener(CLIENTES_COD);
 
             return View(ousuarios);
         }
         [HttpPost]
-        public IActionResult Editar(Usuarios ousuarios)
+        public IActionResult Editar(Clientes oclientes)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var respuesta = usuariosDatos.Editar(ousuarios);
+            var respuesta = clientesDatos.Editar(oclientes);
 
             if (respuesta)
                 return RedirectToAction("Listar");
@@ -57,16 +57,16 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        public IActionResult Eliminar(int USUARIOS_CODIGO)
+        public IActionResult Eliminar(int CLIENTES_COD)
         {
-            var ousuarios = usuariosDatos.Obtener(USUARIOS_CODIGO);
+            var ousuarios = clientesDatos.Obtener(CLIENTES_COD);
 
             return View(ousuarios);
         }
         [HttpPost]
-        public IActionResult Eliminar(Usuarios ousuarios)
+        public IActionResult Eliminar(Clientes oclientes)
         {
-            var respuesta = usuariosDatos.Eliminar(ousuarios.USUARIOS_CODIGO);
+            var respuesta = clientesDatos.Eliminar(oclientes.CLIENTES_COD);
 
             if (respuesta)
                 return RedirectToAction("Listar");

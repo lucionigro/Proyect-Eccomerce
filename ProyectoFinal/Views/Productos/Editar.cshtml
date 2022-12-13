@@ -1,0 +1,37 @@
+﻿@model Productos
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Editar productos
+    </div>
+    <div class="card-body">
+
+
+        <form asp-action="Editar" asp-controller="Productos"method="post">
+        <input asp-for="PRODUCTOS_COD" type="hidden" class="form-control"/>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="NOMBRE" type="text" class="form-control">
+                <span asp-validation-for="NOMBRE" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input asp-for="PRECIO" type="number" class="form-control">
+                <span asp-validation-for="PRECIO" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Stock</label>
+                <input asp-for="STOCK" type="number" class="form-control">
+                <span asp-validation-for="STOCK" class="text-danger"></span>
+            </div>           
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Productos" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+
