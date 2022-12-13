@@ -13,7 +13,7 @@
         <form asp-action="Eliminar" asp-controller="Empleados" method="post">
         <input asp-for="EMPLEADOS_CODIGO" type="hidden" class="form-control" />
         <div class="alert alert-danger" role="alert">
-            Alerta de peligro
+            ¿Desea eliminar el Empleado : @Html.DisplayTextFor(m => m.NOMBRE)?
         </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>
