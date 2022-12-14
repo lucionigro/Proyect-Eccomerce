@@ -2,7 +2,8 @@
 {
     public class Categoria
     {
-        public int PROOVEDORES_COD { get; set; }
         public int CATEGORIA_CODIGO { get;set; }
+
+        public int PROOVEDORES_COD { get; set; }
     }
 }

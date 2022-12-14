@@ -23,15 +23,14 @@ namespace ProyectoFinal.Datos
                     while (dr.Read())
                         oLista.Add(new Clientes()
                         {
-                            CLIENTES_COD = Convert.ToInt32(dr["CLIENTE_COD"]),
-                            NOMBRE = dr["NOMBRE"].ToString(),
-                            APELLIDO = dr["APELLIDO"].ToString(),
+                            CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]),
                             CORREO = dr["CORREO"].ToString(),
+                            CONTRASENIA = dr["CONTRASENIA"].ToString(),
                             TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString(),
-                            CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]),
                             RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString(),
-                            CONTRASEÑA = dr["CONTRASEÑA"].ToString(),
-                            
+                            CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]),
+                            NOMBRE = dr["NOMBRE"].ToString(),
+                            APELLIDO = dr["APELLIDO"].ToString()                         
                         });
                 }
             }
@@ -57,7 +56,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
-                    cmd.Parameters.AddWithValue("CONTRASEÑA", oclientes.CONTRASEÑA);
+                    cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -116,7 +115,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
-                    cmd.Parameters.AddWithValue("CONTRASEÑA", oclientes.CONTRASEÑA);
+                    cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -148,14 +147,14 @@ namespace ProyectoFinal.Datos
                 {
                     while (dr.Read())
                     {
-                        oclientes.CLIENTES_COD = Convert.ToInt32(dr["Clientes_cod"]);
+                        oclientes.CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]);
                         oclientes.NOMBRE = dr["NOMBRE"].ToString();
                         oclientes.APELLIDO = dr["APELLIDO"].ToString();
                         oclientes.CORREO = dr["CORREO"].ToString();
                         oclientes.TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString();
                         oclientes.CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]);
                         oclientes.RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString();
-                        oclientes.CONTRASEÑA = dr["CONTRASEÑA"].ToString();
+                        oclientes.CONTRASENIA = dr["CONTRASENIA"].ToString();
                         
                     }
                 }

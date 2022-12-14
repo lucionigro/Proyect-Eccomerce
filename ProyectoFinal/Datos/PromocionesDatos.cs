@@ -26,11 +26,11 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Promociones()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]),
+                            PROMOCIONES_COD = Convert.ToInt32(dr["PROMOCIONES_COD"]),
 
                             NOMBRE = dr["NOMBRE"].ToString(),
 
-                            DESCUENTO = Convert.ToDecimal(dr["DESCUENTO"])
+                            DESCUENTO = (float)Convert.ToDecimal(dr["DESCUENTO"])
                         });
                 }
             }
@@ -51,7 +51,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_promociones", conexion);
-                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", opromociones.PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_COD", opromociones.PROMOCIONES_COD);
                     cmd.Parameters.AddWithValue("NOMBRE", opromociones.NOMBRE);
                     cmd.Parameters.AddWithValue("DESCUENTO", opromociones.DESCUENTO);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -69,7 +69,7 @@ namespace ProyectoFinal.Datos
 
         //DELETE
         //reemplazar el (int ---) por la primary de la tabla
-        public bool Eliminar(int PROMOCIONES_CODIGO)
+        public bool Eliminar(int PROMOCIONES_COD)
         {
             bool respuesta;
 
@@ -82,7 +82,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_promociones", conexion);
-                    cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_COD", PROMOCIONES_COD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -127,7 +127,7 @@ namespace ProyectoFinal.Datos
 
         //READ BY
         //Reemplazar el (int ----) por la primary que vaya
-        public Promociones Obtener(int PROMOCIONES_CODIGO)
+        public Promociones Obtener(int PROMOCIONES_COD)
         {
             var opromociones = new Promociones();
             var cn = new Conexion();
@@ -137,16 +137,16 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_promociones", conexion);
-                cmd.Parameters.AddWithValue("PROMOCIONES_CODIGO", PROMOCIONES_CODIGO);
+                cmd.Parameters.AddWithValue("PROMOCIONES_COD", PROMOCIONES_COD);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        opromociones.PROMOCIONES_CODIGO = Convert.ToInt32(dr["PROMOCIONES_CODIGO"]);
+                        opromociones.PROMOCIONES_COD = Convert.ToInt32(dr["PROMOCIONES_COD"]);
                         opromociones.NOMBRE = dr["NOMBRE"].ToString();
-                        opromociones.DESCUENTO = Convert.ToDecimal(dr["DESCUENTO"]);
+                        opromociones.DESCUENTO = (float)Convert.ToDecimal(dr["DESCUENTO"]);
                     }
                 }
             }

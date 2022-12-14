@@ -22,9 +22,8 @@ namespace ProyectoFinal.Datos
                     while (dr.Read())
                         oLista.Add(new Empleados()
                         {
-                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]),
-                            SUPERVISOR_CODIGO = Convert.ToInt32(dr["SUPERVISOR_CODIGO"]),
-                            TIPO_EMPLEADO = dr["TIPO_EMPLEADO"].ToString(),
+                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]),                           
+                            TIPO_EMPLEADO = Convert.ToInt32(dr["TIPO_EMPLEADO"]),
                             APELLIDO_SUPERVISOR = dr["APELLIDO_SUPERVISOR"].ToString(),
                             NOMBRE = dr["NOMBRE"].ToString(),
                             APELLIDO = dr["APELLIDO"].ToString(),                            
@@ -47,13 +46,12 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_editar_empleados", conexion);
-                    cmd.Parameters.AddWithValue("Empleados_cod", oempleados.EMPLEADOS_CODIGO);
-                    cmd.Parameters.AddWithValue("Supervisor_cod", oempleados.SUPERVISOR_CODIGO);
-                    cmd.Parameters.AddWithValue("Tipo_empleado", oempleados.TIPO_EMPLEADO);
-                    cmd.Parameters.AddWithValue("Apellido_supervisor", oempleados.APELLIDO_SUPERVISOR);
-                    cmd.Parameters.AddWithValue("Nombre", oempleados.NOMBRE);
-                    cmd.Parameters.AddWithValue("Apellido", oempleados.APELLIDO);
-                    cmd.Parameters.AddWithValue("Usuarios_codigo", oempleados.USUARIOS_CODIGO);                    
+                    cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", oempleados.EMPLEADOS_CODIGO);
+                    cmd.Parameters.AddWithValue("TIPO_EMPLEADO", oempleados.TIPO_EMPLEADO);
+                    cmd.Parameters.AddWithValue("APELLIDO_SUPERVISOR", oempleados.APELLIDO_SUPERVISOR);
+                    cmd.Parameters.AddWithValue("NOMBRE", oempleados.NOMBRE);
+                    cmd.Parameters.AddWithValue("APELLIDO", oempleados.APELLIDO);
+                    //cmd.Parameters.AddWithValue("Usuarios_codigo", oempleados.USUARIOS_CODIGO);                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -79,7 +77,7 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_eliminar_empleados", conexion);
-                    cmd.Parameters.AddWithValue("Empleados_cod", EMPLEADOS_CODIGO);
+                    cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", EMPLEADOS_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -105,12 +103,12 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_guardar_empleados", conexion);                    
-                    cmd.Parameters.AddWithValue("Supervisor_cod", oempleados.SUPERVISOR_CODIGO);
-                    cmd.Parameters.AddWithValue("Tipo_empleado", oempleados.TIPO_EMPLEADO);
-                    cmd.Parameters.AddWithValue("Apellido_supervisor", oempleados.APELLIDO_SUPERVISOR);
-                    cmd.Parameters.AddWithValue("Nombre", oempleados.NOMBRE);
-                    cmd.Parameters.AddWithValue("Apellido", oempleados.APELLIDO);
-                    cmd.Parameters.AddWithValue("Usuarios_codigo", oempleados.USUARIOS_CODIGO);
+                    
+                    cmd.Parameters.AddWithValue("TIPO_EMPLEADO", oempleados.TIPO_EMPLEADO);
+                    cmd.Parameters.AddWithValue("APELLIDO_SUPERVISOR", oempleados.APELLIDO_SUPERVISOR);
+                    cmd.Parameters.AddWithValue("NOMBRE", oempleados.NOMBRE);
+                    cmd.Parameters.AddWithValue("APELLIDO", oempleados.APELLIDO);
+                    cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oempleados.USUARIOS_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -134,20 +132,20 @@ namespace ProyectoFinal.Datos
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("sp_obtener_empleados", conexion);
-                cmd.Parameters.AddWithValue("Empleados_cod", EMPLEADOS_CODIGO);
+                cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", EMPLEADOS_CODIGO);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        oempleados.EMPLEADOS_CODIGO = Convert.ToInt32(dr["Empleados_cod"]);
-                        oempleados.SUPERVISOR_CODIGO = Convert.ToInt32(dr["Supervisor_cod"]);
-                        oempleados.TIPO_EMPLEADO = dr["Tipo_empleado"].ToString();
-                        oempleados.APELLIDO_SUPERVISOR = dr["Apellido_supervisor"].ToString();
-                        oempleados.NOMBRE = dr["Nombre"].ToString();
-                        oempleados.APELLIDO = dr["Apellido"].ToString();                        
-                        oempleados.USUARIOS_CODIGO = Convert.ToInt32(dr["Usuarios_codigo"]);
+                        oempleados.EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]);
+                        
+                        oempleados.TIPO_EMPLEADO = Convert.ToInt32(dr["TIPO_EMPLEADO"]);
+                        oempleados.APELLIDO_SUPERVISOR = dr["APELLIDO_SUPERVISOR"].ToString();
+                        oempleados.NOMBRE = dr["NOMBRE"].ToString();
+                        oempleados.APELLIDO = dr["APELLIDO"].ToString();                        
+                        oempleados.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);
                     }
                 }
             }

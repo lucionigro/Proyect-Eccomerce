@@ -27,13 +27,13 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new OrdenesProductos()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),
+                            //ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),
 
-                            ORDENES_PRODUCTOS_COD = Convert.ToInt32(dr["ORDENES_PRODUCTOS_COD"]),
+                            ORDENESPRODUCTOSCOD = Convert.ToInt32(dr["ORDENESPRODUCTOSCOD"]),
 
-                            PRECIO_COMPRA = (float)Convert.ToDecimal(dr["PRECIO_COMPRA"]),
+                            PRECIOCOMPRA = (float)Convert.ToDecimal(dr["PRECIOCOMPRA"]),
 
-                            CANTIDAD_PRODUCTO = Convert.ToInt32(dr["CANTIDAD_PRODUCTO"]),
+                            CANTIDADPRODUCTO = Convert.ToInt32(dr["CANTIDADPRODUCTO"]),
 
                             
 
@@ -57,10 +57,10 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_ordenes_productos", conexion);
-                    cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
-                    cmd.Parameters.AddWithValue("ORDENES_PRODUCTOS_COD", OordenesProductos.ORDENES_PRODUCTOS_COD);
-                    cmd.Parameters.AddWithValue("PRECIO_COMPRA", OordenesProductos.PRECIO_COMPRA);
-                    cmd.Parameters.AddWithValue("CANTIDAD_PRODUCTO", OordenesProductos.CANTIDAD_PRODUCTO);
+                    //cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("ORDENESPRODUCTOSCOD", OordenesProductos.ORDENESPRODUCTOSCOD);
+                    cmd.Parameters.AddWithValue("PRECIOCOMPRA", OordenesProductos.PRECIOCOMPRA);
+                    cmd.Parameters.AddWithValue("CANTIDADPRODUCTO", OordenesProductos.CANTIDADPRODUCTO);
                     
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -78,7 +78,7 @@ namespace ProyectoFinal.Datos
 
         //DELETE
         //reemplazar el (int ---) por la primary de la tabla
-        public bool Eliminar(int ORDENES_PRODUCTOS_COD)
+        public bool Eliminar(int ORDENESPRODUCTOSCOD)
         {
             bool respuesta;
 
@@ -91,7 +91,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_ordenes_productos", conexion);
-                    cmd.Parameters.AddWithValue("ORDENES_PRODUCTOS_COD", ORDENES_PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("ORDENESPRODUCTOSCOD", ORDENESPRODUCTOSCOD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -119,9 +119,9 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_ordenes_prodcutos", conexion);
-                    cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
-                    cmd.Parameters.AddWithValue("PRECIO_COMPRA", OordenesProductos.PRECIO_COMPRA);
-                    cmd.Parameters.AddWithValue("CANTIDAD_PRODUCTO", OordenesProductos.CANTIDAD_PRODUCTO);
+                    //cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("PRECIOCOMPRA", OordenesProductos.PRECIOCOMPRA);
+                    cmd.Parameters.AddWithValue("CANTIDADPRODUCTO", OordenesProductos.CANTIDADPRODUCTO);
                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -138,7 +138,7 @@ namespace ProyectoFinal.Datos
 
         //READ BY
         //Reemplazar el (int ----) por la primary que vaya
-        public OrdenesProductos Obtener(int ORDENES_PRODUCTOS_COD)
+        public OrdenesProductos Obtener(int ORDENESPRODUCTOSCOD)
         {
             var OordenesProductos = new OrdenesProductos();
             var cn = new Conexion();
@@ -148,17 +148,17 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_ordenes_productos", conexion);
-                cmd.Parameters.AddWithValue("ORDENES_PRODUCTOS_COD", ORDENES_PRODUCTOS_COD);
+                cmd.Parameters.AddWithValue("ORDENESPRODUCTOSCOD", ORDENESPRODUCTOSCOD);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        OordenesProductos.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);
-                        OordenesProductos.ORDENES_PRODUCTOS_COD = Convert.ToInt32(dr["ORDENES_PRODUCTOS_COD"]);
-                        OordenesProductos.PRECIO_COMPRA = (float)Convert.ToDecimal(dr["PRECIO_COMPRA"]);
-                        OordenesProductos.CANTIDAD_PRODUCTO = Convert.ToInt32(dr["CANTIDAD_PRODUCTO"]);
+                        //OordenesProductos.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);
+                        OordenesProductos.ORDENESPRODUCTOSCOD = Convert.ToInt32(dr["ORDENESPRODUCTOSCOD"]);
+                        OordenesProductos.PRECIOCOMPRA = (float)Convert.ToDecimal(dr["PRECIOCOMPRA"]);
+                        OordenesProductos.CANTIDADPRODUCTO = Convert.ToInt32(dr["CANTIDADPRODUCTO"]);
                         
                     }
                 }

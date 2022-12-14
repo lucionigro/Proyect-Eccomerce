@@ -25,7 +25,8 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Usuarios()
                         {
                             //reemplazen por los valores de la columna, sea string o int
-                            //USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
+                            USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]),
+                            //PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"])
                             
                         });
                 }
@@ -48,6 +49,7 @@ namespace ProyectoFinal.Datos
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_usuarios", conexion);
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", ousuarios.USUARIOS_CODIGO);
+                    //cmd.Parameters.AddWithValue("PERFILES_CODIGO", ousuarios.PERFILES_CODIGO);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -105,7 +107,7 @@ namespace ProyectoFinal.Datos
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_usuarios", conexion);
                    
-                    cmd.Parameters.AddWithValue("PERFILES_CODIGO", ousuarios.PERFILES_CODIGO);
+                    //cmd.Parameters.AddWithValue("PERFILES_CODIGO", ousuarios.PERFILES_CODIGO);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -140,7 +142,7 @@ namespace ProyectoFinal.Datos
                     while (dr.Read())
                     {
                         ousuarios.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);                        
-                        ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"]);
+                        //ousuarios.PERFILES_CODIGO = Convert.ToInt32(dr["PERFILES_CODIGO"]);
                     }
                 }
             }

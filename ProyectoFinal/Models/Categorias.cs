@@ -2,7 +2,7 @@
 {
     public class Categorias
     {
-        public int CATEGORIA_CODIGO { get; set; }
+        public int CATEGORIA_COD { get; set; }
         public string? DETALLE { get; set; }
     }
 }
