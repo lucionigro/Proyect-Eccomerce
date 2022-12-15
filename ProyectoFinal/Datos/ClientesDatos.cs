@@ -30,7 +30,8 @@ namespace ProyectoFinal.Datos
                             RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString(),
                             CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]),
                             NOMBRE = dr["NOMBRE"].ToString(),
-                            APELLIDO = dr["APELLIDO"].ToString()                         
+                            APELLIDO = dr["APELLIDO"].ToString() ,
+                            USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"])
                         });
                 }
             }
@@ -57,6 +58,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
                     cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
+                    cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oclientes.USUARIOS_CODIGO);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();

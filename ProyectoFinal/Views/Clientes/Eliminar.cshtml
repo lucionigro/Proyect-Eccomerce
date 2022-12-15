@@ -16,7 +16,7 @@
                 ¿Desea eliminar el cliente : @Html.DisplayTextFor(m => m.NOMBRE)?
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button asp-action="Eliminar"asp-controller="Clientes" type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Clientes" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>

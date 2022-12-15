@@ -51,7 +51,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("APELLIDO_SUPERVISOR", oempleados.APELLIDO_SUPERVISOR);
                     cmd.Parameters.AddWithValue("NOMBRE", oempleados.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oempleados.APELLIDO);
-                    //cmd.Parameters.AddWithValue("Usuarios_codigo", oempleados.USUARIOS_CODIGO);                    
+                    cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oempleados.USUARIOS_CODIGO);                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }

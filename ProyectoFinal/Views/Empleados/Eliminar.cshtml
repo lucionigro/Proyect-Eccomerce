@@ -16,7 +16,7 @@
             ¿Desea eliminar el Empleado : @Html.DisplayTextFor(m => m.NOMBRE)?
         </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button asp-action="Eliminar" asp-controller="Empleados" type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Empleados" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>
