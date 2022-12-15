@@ -28,10 +28,10 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Codigo de proveedor</label>
-                <input asp-for="PROVEEDORES_COD" type="number" class="form-control">
+                  <input asp-for="PROVEEDORES_COD" type="number" class="form-control">
                 
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button asp-action="GuardarForm" asp-controller="Productos" type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Productos" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>

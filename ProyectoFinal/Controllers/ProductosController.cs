@@ -17,7 +17,7 @@ namespace ProyectoFinal.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GuardarNuevo(Productos Oproductos)
+        public IActionResult GuardarForm(Productos Oproductos)
         {
             if (!ModelState.IsValid)
             {
@@ -25,6 +25,7 @@ namespace ProyectoFinal.Controllers
             }
             var respuesta = ProductosDatos.Guardar(Oproductos);
 
+            Console.WriteLine(respuesta);
             if (respuesta)
             {
                 return RedirectToAction("Listar");
