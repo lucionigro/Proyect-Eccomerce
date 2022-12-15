@@ -40,9 +40,9 @@ namespace ProyectoFinal.Controllers
             }
         }
         //lo mismo que en los otros dos :D
-        public IActionResult Editar(int EMPLEADOS_CODIGO)
+        public IActionResult Editar(int id)
         {
-            var oempleados = empleadosDatos.Obtener(EMPLEADOS_CODIGO);
+            var oempleados = empleadosDatos.Obtener(id);
 
             return View(oempleados);
         }
@@ -62,9 +62,9 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        public IActionResult Eliminar(int EMPLEADOS_CODIGO)
+        public IActionResult Eliminar(int id)
         {
-            var oempleados = empleadosDatos.Obtener(EMPLEADOS_CODIGO);
+            var oempleados = empleadosDatos.Obtener(id);
 
             return View(oempleados);
         }

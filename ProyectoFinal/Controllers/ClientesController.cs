@@ -35,11 +35,11 @@ namespace ProyectoFinal.Controllers
             }
         }
 
-        public IActionResult Editar(int CLIENTES_COD)
+        public IActionResult Editar(int id)
         {
-            var ousuarios = clientesDatos.Obtener(CLIENTES_COD);
+            var oclientes = clientesDatos.Obtener(id);
 
-            return View(ousuarios);
+            return View(oclientes);
         }
         [HttpPost]
         public IActionResult Editar(Clientes oclientes)
@@ -57,11 +57,11 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        public IActionResult Eliminar(int CLIENTES_COD)
+        public IActionResult Eliminar(int id)
         {
-            var ousuarios = clientesDatos.Obtener(CLIENTES_COD);
+            var oclientes = clientesDatos.Obtener(id);
 
-            return View(ousuarios);
+            return View(oclientes);
         }
         [HttpPost]
         public IActionResult Eliminar(Clientes oclientes)

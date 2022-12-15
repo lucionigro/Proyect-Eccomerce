@@ -36,9 +36,9 @@ namespace ProyectoFinal.Controllers
             }
         }
 
-        public IActionResult Editar(int PRODUCTOS_COD)
+        public IActionResult Editar(int id)
         {
-            var Oproductos = ProductosDatos.Obtener(PRODUCTOS_COD);
+            var Oproductos = ProductosDatos.Obtener(id);
 
             return View(Oproductos);
         }
@@ -58,9 +58,9 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        public IActionResult Eliminar(int PRODUCTOS_COD)
+        public IActionResult Eliminar(int id)
         {
-            var Oproductos = ProductosDatos.Obtener(PRODUCTOS_COD);
+            var Oproductos = ProductosDatos.Obtener(id);
 
             return View(Oproductos);
         }
