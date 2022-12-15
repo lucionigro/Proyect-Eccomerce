@@ -38,9 +38,9 @@ namespace ProyectoFinal.Controllers
 
         public IActionResult Editar(int PRODUCTOS_COD)
         {
-            var ousuarios = ProductosDatos.Obtener(PRODUCTOS_COD);
+            var Oproductos = ProductosDatos.Obtener(PRODUCTOS_COD);
 
-            return View(ousuarios);
+            return View(Oproductos);
         }
         [HttpPost]
         public IActionResult Editar(Productos Oproductos)
@@ -60,9 +60,9 @@ namespace ProyectoFinal.Controllers
 
         public IActionResult Eliminar(int PRODUCTOS_COD)
         {
-            var ousuarios = ProductosDatos.Obtener(PRODUCTOS_COD);
+            var Oproductos = ProductosDatos.Obtener(PRODUCTOS_COD);
 
-            return View(ousuarios);
+            return View(Oproductos);
         }
         [HttpPost]
         public IActionResult Eliminar(Productos Oproductos)

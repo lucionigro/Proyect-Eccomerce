@@ -59,12 +59,10 @@ namespace ProyectoFinal.Datos
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_productos", conexion);
                     cmd.Parameters.AddWithValue("PRODUCTOS_COD", Oproductos.PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("PROVEDORES_COD", Oproductos.PROVEEDORES_COD);
                     cmd.Parameters.AddWithValue("NOMBRE", Oproductos.NOMBRE);
                     cmd.Parameters.AddWithValue("PRECIO", Oproductos.PRECIO);
                     cmd.Parameters.AddWithValue("STOCK", Oproductos.STOCK);
-                    cmd.Parameters.AddWithValue("PROVEEDORES_COD", Oproductos.PROVEEDORES_COD);
-                    
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }

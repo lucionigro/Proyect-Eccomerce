@@ -16,7 +16,7 @@
             ¿Desea eliminar el producto : @Html.DisplayTextFor(m => m.NOMBRE)?
         </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button asp-action="Eliminar" asp-controller="Productos"type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Productos" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>
