@@ -9,22 +9,27 @@
         Productos
     </div>
     <div class="card-body">
-        <form>
+        <form asp-action="GuardarForm"asp-controller="Productos"method="post">
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
                 <input asp-for="NOMBRE" type="text" class="form-control">
-                <span asp-validation-for="NOMBRE" class="text-danger"></span>
+                
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Precio</label>
                 <input asp-for="PRECIO" type="number" class="form-control">
-                <span asp-validation-for="PRECIO" class="text-danger"></span>
+                
             </div>
             <div class="mb-3">
                 <label class="form-label">Stock</label>
                 <input asp-for="STOCK" type="number" class="form-control">
-                <span asp-validation-for="STOCK" class="text-danger"></span>
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Codigo de proveedor</label>
+                <input asp-for="PROVEEDORES_COD" type="number" class="form-control">
+                
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Productos" class="btn btn-warning">Volver al listado</a>

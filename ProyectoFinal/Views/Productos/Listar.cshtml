@@ -15,18 +15,24 @@
             <thead>
                 <tr>
 
+                    <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Stock</th>
+                    <th>Proovedor</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@item.PRODUCTOS_COD</td>
                         <td>@item.NOMBRE</td>
                         <td>@item.PRECIO</td>
                         <td>@item.STOCK</td>
+                        <td>@item.PROVEEDORES_COD</td>
+                        
                         <td>
                             <a asp-action="Editar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Editar</a>
                             <a asp-action="Eliminar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Eliminar</a>

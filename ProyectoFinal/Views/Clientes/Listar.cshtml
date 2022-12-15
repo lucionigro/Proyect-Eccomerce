@@ -16,11 +16,12 @@
             <thead>
                 <tr>
 
+                    <th>Cliente cod</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Correo</th>
                     <th>Contraseña</th>
-                    <th>Tipo clientes</th>
+                    <th>Tipo cliente</th>
                     <th>CUIT/DNI</th>
                     <th>Razon social</th>
                 </tr>
@@ -29,6 +30,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@item.CLIENTES_COD</td>
                         <td>@item.NOMBRE</td>
                         <td>@item.APELLIDO</td>
                         <td>@item.CORREO</td>

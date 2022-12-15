@@ -35,6 +35,7 @@ namespace ProyectoFinal.Datos
 
                             STOCK = Convert.ToInt32(dr["STOCK"]),
 
+                            PROVEEDORES_COD = Convert.ToInt32(dr["PROVEEDORES_COD"])
                             
 
                         });
@@ -57,10 +58,11 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_productos", conexion);
-                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", Oproductos.PRODUCTOS_COD);
+                    //cmd.Parameters.AddWithValue("PRODUCTOS_COD", Oproductos.PRODUCTOS_COD);
                     cmd.Parameters.AddWithValue("NOMBRE", Oproductos.NOMBRE);
                     cmd.Parameters.AddWithValue("PRECIO", Oproductos.PRECIO);
                     cmd.Parameters.AddWithValue("STOCK", Oproductos.STOCK);
+                    cmd.Parameters.AddWithValue("PROVEEDORES_COD", Oproductos.PROVEEDORES_COD);
                     
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -122,6 +124,7 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("NOMBRE", Oproductos.NOMBRE);
                     cmd.Parameters.AddWithValue("PRECIO", Oproductos.PRECIO);
                     cmd.Parameters.AddWithValue("STOCK", Oproductos.STOCK);
+                    cmd.Parameters.AddWithValue("PROVEEDORES_COD", Oproductos.PROVEEDORES_COD);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -147,8 +150,8 @@ namespace ProyectoFinal.Datos
             {
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
-                SqlCommand cmd = new SqlCommand("sp_obtener_productos", conexion);
-                cmd.Parameters.AddWithValue("productos_cod", PRODUCTOS_COD);
+                SqlCommand cmd = new SqlCommand("sp_obtener_poductos", conexion);
+                cmd.Parameters.AddWithValue("PRODUCTOS_COD", PRODUCTOS_COD);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
@@ -159,6 +162,7 @@ namespace ProyectoFinal.Datos
                         Oproductos.NOMBRE = dr["NOMBRE"].ToString();
                         Oproductos.PRECIO = (float)Convert.ToDecimal(dr["PRECIO"]);
                         Oproductos.STOCK = Convert.ToInt32(dr["STOCK"]);
+                        Oproductos.PROVEEDORES_COD = Convert.ToInt32(dr["PROVEEDORES_COD"]);
                         
                     }
                 }
