@@ -17,6 +17,8 @@ namespace ProyectoFinal.Controllers
         }
         //Click derecho en Guardarform y añadir vista
         //Esta vista solamente devuelve la Lista a guardar
+        //Siempre para crear vistas parense en el primer guardar que vean, primer editar y primer eliminar
+        //Para que no se mareen si ven dos controladores editar, la vista siempre sea crea sobre el primero
         public IActionResult GuardarForm()
         {
             return View();

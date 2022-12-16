@@ -1,22 +1,36 @@
 ﻿@model List<Empleados>
+<!--Bien primero definen de donde viene el modelo, en este caso es como la vista es un listar
+    es un List<nombredelmodelo>
+-->
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!--esto viene directamente del layout para que funcionen las tablas de jquery-->
+@section Estilos{
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
 
 <div class="card">
     <div class="card-header">
         Lista de empleados
     </div>
     <div class="card-body">
+        <!--Presten atencion siempre al asp-controler, el asp action va a ser para todos lo mismo-->
         <a asp-action="GuardarForm" asp-controller="Empleados" class="btn btn-success">Crear nuevo</a>
         <hr />
-        <table class="d-lg-table table-bordered">
+        <!--Cambien el id de la tabla en base a la que usen ustedes
+            es importante para el temita de jquery van a ver al final de la pagina porque
+            tb_nombredelatabla
+        -->
+        <table id="tb_empleados" class="display" style="width:100%">
             <thead>
                 <tr>                    
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Tipo Empleado</th>
+                    <th>Funciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,3 +50,14 @@
         </table>
     </div>
 </div>
+<!--Bien esto es el javascript de las tablas
+    adentro del codigo en el #tb_ ahi cambian por el nombre de su tabla y anda perfecto
+-->
+@section Scripts{
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#tb_empleados').DataTable();
+            });
+        </script>
+}

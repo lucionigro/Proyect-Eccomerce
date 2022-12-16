@@ -1,4 +1,5 @@
 ﻿@model Empleados
+<!--Nombren el modelo de lo que van a completar-->
 @{
     ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,8 +9,14 @@
         Editar Empleados
     </div>
     <div class="card-body">
-
-
+        <!--Bien, esta vista es un editar, y como vimos, en un editar
+            NO hay que cambiar la primary key o otro tipo de datos
+            por eso aca uso estos input asp for = nombre de la primary
+            y type es igual a Hidden asi no los printea en la pantalla ya que es innecesario
+            que el usuario los vea.
+            
+            Recuerden cambiar los asp=controler correspondientes
+        -->
         <form asp-action="Editar" asp-controller="Empleados"method="post">
         <input asp-for="EMPLEADOS_CODIGO" type="hidden" class="form-control"/>
         <input asp-for="APELLIDO_SUPERVISOR" type="hidden" class="form-control">

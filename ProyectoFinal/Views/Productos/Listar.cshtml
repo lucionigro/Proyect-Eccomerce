@@ -1,7 +1,11 @@
 ﻿@model List<Productos>
+
 @{
     ViewData["Title"] = "Listar";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos{
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
 }
 
 <div class="card">
@@ -11,7 +15,7 @@
     <div class="card-body">
         <a asp-action="GuardarForm" asp-controller="Productos" class="btn btn-success">Crear nuevo</a>
         <hr />
-        <table class="d-lg-table table-bordered">
+        <table id="tb_productos" class="display" style="width:100%">
             <thead>
                 <tr>
 
@@ -20,6 +24,7 @@
                     <th>Precio</th>
                     <th>Stock</th>
                     <th>Proovedor</th>
+                    <th>Funciones</th>
                     
                 </tr>
             </thead>
@@ -43,3 +48,11 @@
         </table>
     </div>
 </div>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tb_productos').DataTable();
+        });
+    </script>
+}
