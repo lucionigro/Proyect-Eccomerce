@@ -9,8 +9,8 @@
     </div>
     <div class="card-body">
         <form asp-action="Editar" asp-controller="Clientes" method="post">
-            <input asp-for="CLIENTES_COD" type="text" class="form-control" />
-            <input asp-for="USUARIOS_CODIGO" type="text" class="form-control" />
+            <input asp-for="CLIENTES_COD" type="hidden" class="form-control" />
+            <input asp-for="USUARIOS_CODIGO" type="hidden" class="form-control" />
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
                 <input asp-for="NOMBRE" type="text" class="form-control">
