@@ -48,7 +48,7 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
-                    SqlCommand cmd = new SqlCommand("sp_editar_proveedores", conexion);
+                    SqlCommand cmd = new SqlCommand("sp_editar_provedores", conexion);
                     cmd.Parameters.AddWithValue("PROVEEDORES_COD", oproveedores.PROVEEDORES_COD);
                     cmd.Parameters.AddWithValue("NOMBRE", oproveedores.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oproveedores.APELLIDO);
@@ -80,7 +80,7 @@ namespace ProyectoFinal.Datos
                     //en el Delete solamente va la primary key
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
-                    SqlCommand cmd = new SqlCommand("sp_eliminar_proveedores", conexion);
+                    SqlCommand cmd = new SqlCommand("sp_eliminar_provedores", conexion);
                     cmd.Parameters.AddWithValue("PROVEEDORES_COD", PROVEEDORES_COD);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -108,7 +108,7 @@ namespace ProyectoFinal.Datos
                     //En un Create se guardan todas las columnas de una tabla excepto la primary aclaro por las dudas
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
-                    SqlCommand cmd = new SqlCommand("sp_guardar_proveedores", conexion);
+                    SqlCommand cmd = new SqlCommand("sp_guardar_provedores", conexion);
                     cmd.Parameters.AddWithValue("NOMBRE", oproveedores.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oproveedores.APELLIDO);
                     cmd.Parameters.AddWithValue("CUIT", oproveedores.CUIT);

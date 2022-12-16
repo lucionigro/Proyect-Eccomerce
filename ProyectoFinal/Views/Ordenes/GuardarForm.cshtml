@@ -12,11 +12,7 @@
     </div>
     <div class="card-body">
         <form asp-action="GuardarForm" asp-controller="Ordenes" method="post">
-            <div class="mb-3">
-                <label class="form-label">Codigo de Orden</label>
-                <input asp-for="ORDENES_COD" type="number" class="form-control">
-
-            </div>
+          
 
             <div class="mb-3">
                 <label class="form-label">Vendedor</label>
@@ -25,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Fecha de entrega</label>
-                <input asp-for="FECHA_ENTREGA" type="date" class="form-control">
+                <input asp-for="FECHA_ENTREGA" type="text" class="form-control">
 
             </div>
             <div class="mb-3">
