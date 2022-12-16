@@ -28,6 +28,7 @@ namespace ProyectoFinal.Datos
                             //reemplazen por los valores de la columna, sea string o int
                             CATEGORIA_COD = Convert.ToInt32(dr["CATEGORIA_COD"]),
                             DETALLE = dr["DETALLE"].ToString()
+
                         });                                        
                 }
             }

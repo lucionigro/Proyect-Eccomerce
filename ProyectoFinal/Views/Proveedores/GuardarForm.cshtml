@@ -1,0 +1,42 @@
+﻿@model Proveedores
+
+
+@{
+    ViewData["Title"] = "GuardarForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Proveedores
+    </div>
+    <div class="card-body">
+        <form asp-action="GuardarForm" asp-controller="Proveedores" method="post">
+            <div class="mb-3">
+                <label class="form-label">Codigo de proveedor</label>
+                <input asp-for="PROVEEDORES_COD" type="number" class="form-control">
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="NOMBRE" type="text" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input asp-for="APELLIDO" type="text" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cuit</label>
+                <input asp-for="CUIT" type="number" class="form-control">
+
+            </div>
+            <button asp-action="GuardarForm" asp-controller="Proveedores" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Proveedores" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+
+

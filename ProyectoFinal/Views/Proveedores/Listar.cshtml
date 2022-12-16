@@ -1,0 +1,58 @@
+﻿@model List<Proveedores>
+
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Estilos{
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
+    <div class="card">
+        <div class="card-header">
+            Lista de proveedores
+        </div>
+        <div class="card-body">
+            <a asp-action="GuardarForm" asp-controller="Proveedores" class="btn btn-success">Crear nuevo</a>
+            <hr />
+            <table id="tb_proveedores" class="display" style="width:100%">
+                <thead>
+                    <tr>
+
+                        <th>Codigo de proveedor</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cuit</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PROVEEDORES_COD</td>
+                        <td>@item.NOMBRE</td>
+                        <td>@item.APELLIDO</td>
+                        <td>@item.CUIT</td>
+
+                        <td>
+                            <a asp-action="Editar" asp-controller="Proveedores" class="btn-primary btn-sm" asp-route-id="@item.PROVEEDORES_COD">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Proveedores" class="btn-primary btn-sm" asp-route-id="@item.PROVEEDORES_COD">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tb_proveedores').DataTable();
+        });
+    </script>
+}
+

@@ -25,8 +25,10 @@ namespace ProyectoFinal.Datos
                         {
                             ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),                            
                             VENDEDOR = dr["VENDEDOR"].ToString(),
-                            FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString(),                            
-                                                       
+                            FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString(),
+                            CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]),
+                            EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]),
+
                         });
                 }
             }
@@ -47,7 +49,10 @@ namespace ProyectoFinal.Datos
                     SqlCommand cmd = new SqlCommand("sp_editar_ordenes", conexion);
                     cmd.Parameters.AddWithValue("ORDENES_COD", oordenes.ORDENES_COD);                    
                     cmd.Parameters.AddWithValue("VENDEDOR", oordenes.VENDEDOR);                    
-                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);                                                           
+                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);
+                    cmd.Parameters.AddWithValue("CLIENTES_COD", oordenes.CLIENTES_COD);
+                    cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", oordenes.EMPLEADOS_CODIGO);
+
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -100,7 +105,10 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_guardar_ordenes", conexion);
                     cmd.Parameters.AddWithValue("VENDEDOR", oordenes.VENDEDOR);                    
-                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);                                                                        
+                    cmd.Parameters.AddWithValue("FECHA_ENTREGA", oordenes.FECHA_ENTREGA);
+                    cmd.Parameters.AddWithValue("CLIENTES_COD", oordenes.CLIENTES_COD);
+                    cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", oordenes.EMPLEADOS_CODIGO);
+
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -133,7 +141,9 @@ namespace ProyectoFinal.Datos
                     {
                         oordenes.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);                        
                         oordenes.VENDEDOR = dr["VENDEDOR"].ToString();
-                        oordenes.FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString();         
+                        oordenes.FECHA_ENTREGA = dr["FECHA_ENTREGA"].ToString();
+                        oordenes.CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]);
+                        oordenes.EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]);
                     }
                 }
             }

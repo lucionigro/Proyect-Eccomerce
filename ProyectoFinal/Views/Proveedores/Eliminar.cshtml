@@ -1,0 +1,26 @@
+﻿@model Proveedores
+
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Proveedor
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Eliminar" asp-controller="Proveedores" method="post">
+            <input asp-for="PROVEEDORES_COD" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el proveedor? : @Html.DisplayTextFor(m => m.NOMBRE)?
+            </div>
+
+            <button asp-action="Eliminar" asp-controller="Proveedores" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Proveedores" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+
