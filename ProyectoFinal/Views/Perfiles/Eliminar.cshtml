@@ -1,0 +1,23 @@
+﻿@model Perfiles
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar perfiles
+    </div>
+    <div class="card-body">
+
+        <form asp-action="Eliminar" asp-controller="Perfiles" method="post">
+            <input asp-for="PERFILES_CODIGO" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el perfil : @Html.DisplayTextFor(m => m.DETALLE)?
+            </div>
+
+            <button asp-action="Eliminar" asp-controller="Perfiles" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Perfiles" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>

@@ -10,7 +10,12 @@
         Empleados
     </div>
     <div class="card-body">
-        <form>                        
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Usuario codigo</label>
+                <input asp-for="USUARIOS_CODIGO" type="number" class="form-control">
+                
+            </div> 
             <div class="mb-3">
                 <label class="form-label">Tipo Empleado</label>
                 <input asp-for="TIPO_EMPLEADO" type="text" class="form-control">

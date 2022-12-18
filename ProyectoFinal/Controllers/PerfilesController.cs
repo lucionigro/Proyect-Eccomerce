@@ -4,12 +4,12 @@ using ProyectoFinal.Datos;
 
 namespace ProyectoFinal.Controllers
 {
-    public class ClientesController : Controller
+    public class PerfilesController : Controller
     {
-       ClientesDatos clientesDatos = new ClientesDatos();
+        perfilesDatos PerfilesDatos = new perfilesDatos();
         public IActionResult Listar()
         {
-            var oLista = clientesDatos.Listar();
+            var oLista = PerfilesDatos.Listar();
             return View(oLista);
         }
         public IActionResult GuardarForm()
@@ -17,13 +17,13 @@ namespace ProyectoFinal.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GuardarForm(Clientes oclientes)
+        public IActionResult GuardarForm(Perfiles Operfiles)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var respuesta = clientesDatos.Guardar(oclientes);
+            var respuesta = PerfilesDatos.Guardar(Operfiles);
 
             if (respuesta)
             {
@@ -37,18 +37,18 @@ namespace ProyectoFinal.Controllers
 
         public IActionResult Editar(int id)
         {
-            var oclientes = clientesDatos.Obtener(id);
+            var Operfiles = PerfilesDatos.Obtener(id);
 
-            return View(oclientes);
+            return View(Operfiles);
         }
         [HttpPost]
-        public IActionResult Editar(Clientes oclientes)
+        public IActionResult Editar(Perfiles Operfiles)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var respuesta = clientesDatos.Editar(oclientes);
+            var respuesta = PerfilesDatos.Editar(Operfiles);
 
             if (respuesta)
                 return RedirectToAction("Listar");
@@ -59,14 +59,14 @@ namespace ProyectoFinal.Controllers
 
         public IActionResult Eliminar(int id)
         {
-            var oclientes = clientesDatos.Obtener(id);
+            var Operfiles = PerfilesDatos.Obtener(id);
 
-            return View(oclientes);
+            return View(Operfiles);
         }
         [HttpPost]
-        public IActionResult Eliminar(Clientes oclientes)
+        public IActionResult Eliminar(Perfiles Operfiles)
         {
-            var respuesta = clientesDatos.Eliminar(oclientes.CLIENTES_COD);
+            var respuesta = PerfilesDatos.Eliminar(Operfiles.PERFILES_CODIGO);
 
             if (respuesta)
                 return RedirectToAction("Listar");

@@ -24,7 +24,7 @@ namespace ProyectoFinal.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GuardarNuevo(Empleados oempleados)
+        public IActionResult GuardarForm(Empleados oempleados)
         {
             if (!ModelState.IsValid)
             {

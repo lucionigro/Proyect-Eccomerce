@@ -18,7 +18,7 @@ namespace ProyectoFinal.Datos
             {
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla 
-                SqlCommand cmd = new SqlCommand("sp_leer_ordenes_productos", conexion);
+                SqlCommand cmd = new SqlCommand("sp_leer_perfiles", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
@@ -51,7 +51,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_perfiles", conexion);
-                    cmd.Parameters.AddWithValue("PERFILES.CODIGO", Operfiles.PERFILES_CODIGO);
+                    cmd.Parameters.AddWithValue("PERFILES_CODIGO", Operfiles.PERFILES_CODIGO);
                     cmd.Parameters.AddWithValue("DETALLE", Operfiles.DETALLE);
 
                     cmd.CommandType = CommandType.StoredProcedure;
