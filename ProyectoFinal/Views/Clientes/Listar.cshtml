@@ -43,8 +43,8 @@
                         <td>@item.CUIT_DNI</td>
                         <td>@item.RAZON_SOCIAL</td>
                         <td>
-                            <a asp-action="Editar" asp-controller="Clientes" class="btn-primary btn-sm" asp-route-id="@item.CLIENTES_COD">Editar</a>
-                            <a asp-action="Eliminar" asp-controller="Clientes" class="btn-primary btn-sm" asp-route-id="@item.CLIENTES_COD">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Clientes" class="btn-primary btn-sm" asp-route-id="@item.CLIENTES_COD"><img src="~/img/pencil-square.svg" /></a>
+                            <a asp-action="Eliminar" asp-controller="Clientes" class="btn-danger btn-sm" asp-route-id="@item.CLIENTES_COD"><img src="~/img/trash-fill.svg" /></a>
                         </td>
                     </tr>
                 }

@@ -32,8 +32,8 @@
                         <td>@item.USUARIOS_CODIGO</td>
                         <td>@item.PERFILES_CODIGO</td>
                         <td>
-                            <a asp-action="Editar" asp-controller="Usuarios" class="btn-primary btn-sm" asp-route-id="@item.USUARIOS_CODIGO">Editar</a>
-                            <a asp-action="Eliminar" asp-controller="Usuarios" class="btn-primary btn-sm" asp-route-id="@item.USUARIOS_CODIGO">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Usuarios" class="btn-primary btn-sm" asp-route-id="@item.USUARIOS_CODIGO"><img src="~/img/pencil-square.svg" /></a>
+                            <a asp-action="Eliminar" asp-controller="Usuarios" class="btn-danger btn-sm" asp-route-id="@item.USUARIOS_CODIGO"><img src="~/img/trash-fill.svg" /></a>
                         </td>
                     </tr>
                 }

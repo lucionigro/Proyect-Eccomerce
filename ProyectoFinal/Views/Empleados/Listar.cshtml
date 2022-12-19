@@ -41,8 +41,8 @@
                         <td>@item.APELLIDO</td>
                         <td>@item.TIPO_EMPLEADO</td>
                         <td>
-                            <a asp-action="Editar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO">Editar</a>
-                            <a asp-action="Eliminar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Empleados" class="btn-primary btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO"><img src="~/img/pencil-square.svg" /></a>
+                            <a asp-action="Eliminar" asp-controller="Empleados" class="btn-danger btn-sm" asp-route-id="@item.EMPLEADOS_CODIGO"><img src="~/img/trash-fill.svg" /></a>
                         </td>
                     </tr>
                 }

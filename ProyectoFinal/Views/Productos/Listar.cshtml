@@ -39,8 +39,8 @@
                         <td>@item.PROVEEDORES_COD</td>
                         
                         <td>
-                            <a asp-action="Editar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Editar</a>
-                            <a asp-action="Eliminar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Productos" class="btn-primary btn-sm" asp-route-id="@item.PRODUCTOS_COD"><img src="~/img/pencil-square.svg" /></a>
+                            <a asp-action="Eliminar" asp-controller="Productos" class="btn-danger btn-sm" asp-route-id="@item.PRODUCTOS_COD"><img src="~/img/trash-fill.svg" /></a>
                         </td>
                     </tr>
                 }
