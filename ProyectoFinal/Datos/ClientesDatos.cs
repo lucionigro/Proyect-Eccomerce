@@ -111,15 +111,14 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_guardar_clientes", conexion);
-                    cmd.Parameters.AddWithValue("Nombre", oclientes.NOMBRE);                    
-                    cmd.Parameters.AddWithValue("APELLIDO", oclientes.APELLIDO);
                     cmd.Parameters.AddWithValue("CORREO", oclientes.CORREO);
-                    cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
-                    cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
-                    cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
                     cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
+                    cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
+                    cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
+                    cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
+                    cmd.Parameters.AddWithValue("NOMBRE", oclientes.NOMBRE);                    
+                    cmd.Parameters.AddWithValue("APELLIDO", oclientes.APELLIDO);
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oclientes.USUARIOS_CODIGO);
-                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }

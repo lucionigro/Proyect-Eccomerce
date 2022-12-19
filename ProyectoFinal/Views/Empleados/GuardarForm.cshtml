@@ -10,7 +10,7 @@
         Empleados
     </div>
     <div class="card-body">
-        <form>
+        <form asp-action="GuardarForm" asp-controller="Empleados" method="post">
             <div class="mb-3">
                 <label class="form-label">Usuario codigo</label>
                 <input asp-for="USUARIOS_CODIGO" type="number" class="form-control">
@@ -18,8 +18,7 @@
             </div> 
             <div class="mb-3">
                 <label class="form-label">Tipo Empleado</label>
-                <input asp-for="TIPO_EMPLEADO" type="text" class="form-control">
-                
+                <input asp-for="TIPO_EMPLEADO" type="text" class="form-control">         
             </div>
             
             <div class="mb-3">
@@ -29,11 +28,18 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
-                <input asp-for="APELLIDO" type="text" class="form-control">
-                
-            </div>           
-            <button type="submit" class="btn btn-primary">Guardar</button>
-           
+                <input asp-for="APELLIDO" type="text" class="form-control"> 
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input asp-for="APELLIDO" type="text" class="form-control"> 
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido de supervisor</label>
+                <input asp-for="APELLIDO_SUPERVISOR" type="text" class="form-control">
+            </div>
+            <button asp-action="GuardarForm" asp-controller="Empleados" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Empleados" class="btn btn-warning">Volver al listado</a>
         </form>
     </div>
 </div>

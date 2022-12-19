@@ -9,7 +9,7 @@
         Clientes
     </div>
     <div class="card-body">
-        <form>
+        <form asp-action="GuardarForm" asp-controller="Clientes" method="post">
             <div class="mb-3">
                 <label class="form-label">Usuario codigo</label>
                 <input asp-for="USUARIOS_CODIGO" type="number" class="form-control">
