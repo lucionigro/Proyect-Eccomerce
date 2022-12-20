@@ -1,0 +1,32 @@
+﻿@model Clientes
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <form method="post" asp-controller="Acceso" asp-action="Login">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+            <input type="email" class="form-control" asp-for="CORREO">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" asp-for="CONTRASENIA">
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+    </form>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
