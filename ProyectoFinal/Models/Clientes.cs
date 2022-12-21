@@ -1,12 +1,14 @@
-﻿using System.Security.Policy;
+﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Policy;
 
 
 namespace ProyectoFinal.Models
 {
     public class Clientes
     {
+
         public int CLIENTES_COD { get; set; }
-        
         public string? CORREO { get; set; }
         public string? CONTRASENIA { get; set; }
         public string? TIPO_CLIENTE { get; set; }
