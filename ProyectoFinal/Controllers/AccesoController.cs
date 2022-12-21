@@ -52,7 +52,7 @@ namespace ProyectoFinal.Controllers
                             conexion.Close();
                         }
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Acceso");
                 }
             }
             catch (Exception)
@@ -61,6 +61,12 @@ namespace ProyectoFinal.Controllers
             }
            
             return View("Login");
+        }
+
+        public ActionResult Logout ()
+        {
+            Response.Cookies.Delete("user");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿@model Clientes
+﻿@model Login
 @{
+    ViewBag.Title = "Iniciar Sesion";
     Layout = null;
 }
 
@@ -15,13 +16,13 @@
     <form method="post" asp-controller="Acceso" asp-action="Login">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-            <input type="email" class="form-control" asp-for="CORREO">
+            <input asp-for="CORREO" type="email" class="form-control">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" asp-for="CONTRASENIA">
+            <input asp-for="CONTRASENIA" type="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+        <button type="submit" value="Log in" class="btn btn-primary" asp-action="Login" asp-controller="Acceso">Iniciar Sesion</button>
     </form>
 
 
