@@ -13,7 +13,7 @@ namespace ProyectoFinal.Controllers
 {
     public class AccesoController : Controller
     {
-        //private readonly Conexion cn;
+        
 
         public ActionResult Login()
         {
@@ -22,7 +22,7 @@ namespace ProyectoFinal.Controllers
 
 
         [HttpPost]
-        public ActionResult Login(Login l)
+        public ActionResult Login(Login login)
         {
             try
             {
@@ -34,15 +34,15 @@ namespace ProyectoFinal.Controllers
                         using (SqlCommand cmd = new("sp_login", conexion))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.Add("@CORREO", SqlDbType.VarChar).Value = l.CORREO;
-                            cmd.Parameters.Add("@CONTRASENIA", SqlDbType.VarChar).Value = l.CONTRASENIA;
+                            cmd.Parameters.Add("@CORREO", SqlDbType.VarChar).Value = login.CORREO;
+                            cmd.Parameters.Add("@CONTRASENIA", SqlDbType.VarChar).Value = login.CONTRASENIA;
                             conexion.Open();
-                            //cmd.ExecuteNonQuery();
+                          
                             SqlDataReader dr = cmd.ExecuteReader();
 
                             if (dr.Read())
                             {
-                                Response.Cookies.Append("user", "Bienvenido " + l.CORREO);
+                                Response.Cookies.Append("user", "Bienvenido " + login.CORREO);
                                 return RedirectToAction("Index", "Home");
                             }
                             else
@@ -62,6 +62,7 @@ namespace ProyectoFinal.Controllers
            
             return View("Login");
         }
+
 
         public ActionResult Logout ()
         {

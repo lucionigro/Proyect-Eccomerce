@@ -9,8 +9,6 @@ namespace ProyectoFinal.Models
     {
 
         public int CLIENTES_COD { get; set; }
-        public string? CORREO { get; set; }
-        public string? CONTRASENIA { get; set; }
         public string? TIPO_CLIENTE { get; set; }
         public string? RAZON_SOCIAL { get; set; }
         public int CUIT_DNI { get; set; }

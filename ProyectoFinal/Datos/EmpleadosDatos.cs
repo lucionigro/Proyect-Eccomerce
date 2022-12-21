@@ -23,11 +23,10 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Empleados()
                         {
                             EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]),                           
-                            TIPO_EMPLEADO = Convert.ToInt32(dr["TIPO_EMPLEADO"]),
-                            APELLIDO_SUPERVISOR = dr["APELLIDO_SUPERVISOR"].ToString(),
+                            TIPO_EMPLEADO = dr["TIPO_EMPLEADO"].ToString(),
                             NOMBRE = dr["NOMBRE"].ToString(),
                             APELLIDO = dr["APELLIDO"].ToString(),                            
-                            //USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"])
+                            USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"])
                         });
                 }
             }
@@ -48,7 +47,7 @@ namespace ProyectoFinal.Datos
                     SqlCommand cmd = new SqlCommand("sp_editar_empleados", conexion);
                     cmd.Parameters.AddWithValue("EMPLEADOS_CODIGO", oempleados.EMPLEADOS_CODIGO);
                     cmd.Parameters.AddWithValue("TIPO_EMPLEADO", oempleados.TIPO_EMPLEADO);
-                    cmd.Parameters.AddWithValue("APELLIDO_SUPERVISOR", oempleados.APELLIDO_SUPERVISOR);
+                    
                     cmd.Parameters.AddWithValue("NOMBRE", oempleados.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oempleados.APELLIDO);
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oempleados.USUARIOS_CODIGO);                    
@@ -105,7 +104,7 @@ namespace ProyectoFinal.Datos
                     SqlCommand cmd = new SqlCommand("sp_guardar_empleados", conexion);                    
                     
                     cmd.Parameters.AddWithValue("TIPO_EMPLEADO", oempleados.TIPO_EMPLEADO);
-                    cmd.Parameters.AddWithValue("APELLIDO_SUPERVISOR", oempleados.APELLIDO_SUPERVISOR);
+                    
                     cmd.Parameters.AddWithValue("NOMBRE", oempleados.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oempleados.APELLIDO);
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oempleados.USUARIOS_CODIGO);
@@ -141,8 +140,8 @@ namespace ProyectoFinal.Datos
                     {
                         oempleados.EMPLEADOS_CODIGO = Convert.ToInt32(dr["EMPLEADOS_CODIGO"]);
                         
-                        oempleados.TIPO_EMPLEADO = Convert.ToInt32(dr["TIPO_EMPLEADO"]);
-                        oempleados.APELLIDO_SUPERVISOR = dr["APELLIDO_SUPERVISOR"].ToString();
+                        
+                        oempleados.TIPO_EMPLEADO = dr["TIPO_EMPLEADO"].ToString();
                         oempleados.NOMBRE = dr["NOMBRE"].ToString();
                         oempleados.APELLIDO = dr["APELLIDO"].ToString();                        
                         oempleados.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);

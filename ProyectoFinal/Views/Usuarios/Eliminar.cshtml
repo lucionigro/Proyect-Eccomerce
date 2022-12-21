@@ -13,7 +13,7 @@
         <form asp-action="Eliminar" asp-controller="Usuarios" method="post">
             <input asp-for="USUARIOS_CODIGO" type="hidden" class="form-control" />
             <div class="alert alert-danger" role="alert">
-                ¿Desea eliminar el usuario : @Html.DisplayTextFor(m => m.USUARIOS_CODIGO)?
+                ¿Desea eliminar el usuario : @Html.DisplayTextFor(m => m.CORREO)?
             </div>
 
             <button asp-action="Eliminar" asp-controller="Usuarios" type="submit" class="btn btn-primary">Guardar</button>

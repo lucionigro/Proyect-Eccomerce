@@ -30,14 +30,7 @@
                 <label class="form-label">Apellido</label>
                 <input asp-for="APELLIDO" type="text" class="form-control"> 
             </div>
-            <div class="mb-3">
-                <label class="form-label">Apellido</label>
-                <input asp-for="APELLIDO" type="text" class="form-control"> 
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Apellido de supervisor</label>
-                <input asp-for="APELLIDO_SUPERVISOR" type="text" class="form-control">
-            </div>
+  
             <button asp-action="GuardarForm" asp-controller="Empleados" type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Empleados" class="btn btn-warning">Volver al listado</a>
         </form>

@@ -1,4 +1,4 @@
-﻿using ProyectoFinal.Models;
+﻿ using ProyectoFinal.Models;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -24,8 +24,6 @@ namespace ProyectoFinal.Datos
                         oLista.Add(new Clientes()
                         {
                             CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]),
-                            CORREO = dr["CORREO"].ToString(),
-                            CONTRASENIA = dr["CONTRASENIA"].ToString(),
                             TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString(),
                             RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString(),
                             CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]),
@@ -53,11 +51,11 @@ namespace ProyectoFinal.Datos
                     cmd.Parameters.AddWithValue("CLIENTES_COD", oclientes.CLIENTES_COD);
                     cmd.Parameters.AddWithValue("NOMBRE", oclientes.NOMBRE);
                     cmd.Parameters.AddWithValue("APELLIDO", oclientes.APELLIDO);
-                    cmd.Parameters.AddWithValue("CORREO", oclientes.CORREO);
+                    
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
-                    cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
+                   
                     cmd.Parameters.AddWithValue("USUARIOS_CODIGO", oclientes.USUARIOS_CODIGO);
                     
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -111,8 +109,7 @@ namespace ProyectoFinal.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("sp_guardar_clientes", conexion);
-                    cmd.Parameters.AddWithValue("CORREO", oclientes.CORREO);
-                    cmd.Parameters.AddWithValue("CONTRASENIA", oclientes.CONTRASENIA);
+                    
                     cmd.Parameters.AddWithValue("TIPO_CLIENTE", oclientes.TIPO_CLIENTE);
                     cmd.Parameters.AddWithValue("RAZON_SOCIAL", oclientes.RAZON_SOCIAL);
                     cmd.Parameters.AddWithValue("CUIT_DNI", oclientes.CUIT_DNI);
@@ -152,11 +149,11 @@ namespace ProyectoFinal.Datos
                         oclientes.CLIENTES_COD = Convert.ToInt32(dr["CLIENTES_COD"]);
                         oclientes.NOMBRE = dr["NOMBRE"].ToString();
                         oclientes.APELLIDO = dr["APELLIDO"].ToString();
-                        oclientes.CORREO = dr["CORREO"].ToString();
+                        
                         oclientes.TIPO_CLIENTE = dr["TIPO_CLIENTE"].ToString();
                         oclientes.CUIT_DNI = Convert.ToInt32(dr["CUIT_DNI"]);
                         oclientes.RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString();
-                        oclientes.CONTRASENIA = dr["CONTRASENIA"].ToString();
+                        
                         oclientes.USUARIOS_CODIGO = Convert.ToInt32(dr["USUARIOS_CODIGO"]);
 
                     }
