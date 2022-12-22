@@ -67,7 +67,7 @@ namespace ProyectoFinal.Controllers
         public ActionResult Logout ()
         {
             Response.Cookies.Delete("user");
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Acceso");
         }
     }
 }

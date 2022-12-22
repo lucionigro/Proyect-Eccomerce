@@ -14,6 +14,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Tienda MVC</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Logout">Logout</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,44 +40,43 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="collapse navbar-collapse text-dark" id="navbarNavDropdown">
-                            <ul class="navbar-nav text-dark">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Admin
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu">
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Listar">Empleados</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Listar">Clientes</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Listar">Productos</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Listar">Proveedores</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Ordenes" asp-action="Listar">Ordenes</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Listar">Usuarios</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Busca</button>
-                        </form>
-                        
                     </ul>
                 </div>
             </div>
-
+     
+            <div class="collapse navbar-collapse text-dark" id="navbarNavDropdown">
+                <ul class="navbar-nav text-dark">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Listar">Empleados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Listar">Clientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Listar">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Listar">Proveedores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ordenes" asp-action="Listar">Ordenes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Listar">Usuarios</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Search">
+                <button class="btn btn-outline-dark btn-sm" type="submit"><img src="~/img/search.svg" /></button>
+            </form>          
         </nav>
     </header>
     <div class="container">
