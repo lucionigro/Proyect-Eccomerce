@@ -11,19 +11,30 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/login.css" rel="stylesheet" />
 </head>
 <body>
-    <form method="post" asp-controller="Acceso" asp-action="Login">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-            <input asp-for="CORREO" type="email" class="form-control">
+    <div class="container">
+        <div class="login-left">
+            <div class="center">
+                <h1>Bienvenido</h1>
+                <p>Porfavor ingrese sus credenciales</p></>
+                <form method="post" asp-controller="Acceso" asp-action="Login" id="form">
+                    <div class="mb-3" id="mail">
+                        <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                        <input asp-for="CORREO" type="email" class="form-control">
+                    </div>
+                    <div class="mb-3" id="contraseña">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                        <input asp-for="CONTRASENIA" type="password" class="form-control">
+                    </div>
+                    <button  id="botondelogin" type="submit" value="Log in" class="btn btn-primary" asp-action="Login" asp-controller="Acceso">Iniciar Sesion</button>
+                </form>
+
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input asp-for="CONTRASENIA" type="password" class="form-control">
-        </div>
-        <button type="submit" value="Log in" class="btn btn-primary" asp-action="Login" asp-controller="Acceso">Iniciar Sesion</button>
-    </form>
+    </div>
+    
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

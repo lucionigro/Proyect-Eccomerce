@@ -7,6 +7,12 @@ namespace ProyectoFinal.Controllers
     public class ProductosController : Controller
     {
         productosDatos ProductosDatos = new productosDatos();
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public IActionResult Listar()
         {
             var oLista = ProductosDatos.Listar();
