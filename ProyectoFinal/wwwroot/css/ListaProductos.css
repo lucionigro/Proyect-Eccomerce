@@ -2,6 +2,10 @@
 }
 
 .row {
-    margin:3rem;
+    margin: 3rem;
+    
+}
 
+.card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
