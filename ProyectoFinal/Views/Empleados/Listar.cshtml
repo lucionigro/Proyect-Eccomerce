@@ -27,6 +27,7 @@
         <table id="tb_empleados" class="display" style="width:100%">
             <thead>
                 <tr>                    
+                    <th>Cod Empleado</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Tipo Empleado</th>
@@ -37,6 +38,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>                       
+                        <td>@item.EMPLEADOS_CODIGO</td>
                         <td>@item.NOMBRE</td>
                         <td>@item.APELLIDO</td>
                         <td>@item.TIPO_EMPLEADO</td>

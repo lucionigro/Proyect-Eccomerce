@@ -15,7 +15,7 @@
 
         <form asp-action="Editar" asp-controller="Ordenes" method="post">
             <input asp-for="ORDENES_COD" type="hidden" class="form-control" />
-            <input asp-for="EMPLEADOS_CODIGO" type="hidden" class="form-control" />
+            
             <div class="mb-3">
                 <label class="form-label">Vendedor</label>
                 <input asp-for="VENDEDOR" type="text" class="form-control">
@@ -25,11 +25,14 @@
             <div class="mb-3">
                 <label class="form-label">Fecha de entrega</label>
                 <input asp-for="FECHA_ENTREGA" type="date" class="form-control">
-
             </div>
             <div class="mb-3">
                 <label class="form-label">Codigo de cliente</label>
                 <input asp-for="CLIENTES_COD" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Codigo de empleado</label>
+                <input asp-for="EMPLEADOS_CODIGO" type="number" class="form-control">
             </div>
             <button asp-action="Editar" asp-controller="Ordenes" type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Listar" asp-controller="Ordenes" class="btn btn-warning">Volver al listado</a>

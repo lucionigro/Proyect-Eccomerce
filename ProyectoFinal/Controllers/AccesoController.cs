@@ -20,7 +20,6 @@ namespace ProyectoFinal.Controllers
             return View("Login");
         }
 
-
         [HttpPost]
         public ActionResult Login(Login login)
         {
