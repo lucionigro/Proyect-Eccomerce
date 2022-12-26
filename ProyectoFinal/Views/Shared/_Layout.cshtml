@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProyectoFinal.styles.css" asp-append-version="true" />
+    <link href="../wwwroot/favicon.ico" rel="icon" type="image/x-icon" />
     @await RenderSectionAsync("Estilos", required: false)
 </head>
 <body>
@@ -30,25 +31,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Productos" asp-action="Index">Productos</a>
                         </li>
-
-                       
-                        
-                        <li class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav text-dark">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Categorias
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Tv, Audio y Video</a></li>
-                                        <li><a class="dropdown-item" href="#">Celulares, Notebook y Tecnologia</a></li>
-                                        <li><a class="dropdown-item" href="#">Hogar, Muebles y Jardin</a></li>
-                                        <li><a class="dropdown-item" href="#">Electrodomesticos y Aires Acc</a></li>
-                                       
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,6 +42,9 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu">
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Listar">Usuarios</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Listar">Empleados</a>
                             </li>
                             <li class="nav-item">
@@ -69,14 +54,14 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Listar">Productos</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PromocionProducto" asp-action="Listar">Promociones</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Listar">Proveedores</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Ordenes" asp-action="Listar">Ordenes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Listar">Usuarios</a>
-                            </li>
+                            </li>  
                         </ul>
                     </li>
                 </ul>

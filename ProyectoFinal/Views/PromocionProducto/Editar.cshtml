@@ -1,0 +1,38 @@
+﻿@model PromocionProducto
+<!--Nombren el modelo de lo que van a completar-->
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Editar Promociones
+    </div>
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="PromocionProducto" method="post">
+            <input asp-for="NUMERO_PROMOCION" type="hidden" class="form-control" />
+            <div class="mb-3">
+                <label class="form-label">Fecha inicial</label>
+                <input asp-for="FECHA_INICIO" type="date" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha final</label>
+                <input asp-for="FECHA_FINAL" type="date" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Producto codigo</label>
+                <input asp-for="PRODUCTOS_COD" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Promocion codigo</label>
+                <input asp-for="PROMOCIONES_COD" type="number" class="form-control">
+            </div>
+            <button asp-action="Editar" asp-controller="PromocionProducto" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="PromocionProducto" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
+
+

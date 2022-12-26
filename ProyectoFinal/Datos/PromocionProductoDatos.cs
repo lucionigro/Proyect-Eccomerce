@@ -70,7 +70,7 @@ namespace ProyectoFinal.Datos
 
         //DELETE
         //reemplazar el (int ---) por la primary de la tabla
-        public bool Eliminar(int PROMOCIONES_COD, int NUMERO_PROMOCION)
+        public bool Eliminar(int NUMERO_PROMOCION)
         {
             bool respuesta;
 
@@ -83,7 +83,7 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_eliminar_promocion_producto", conexion);
-                    cmd.Parameters.AddWithValue("PROMOCIONES_COD", PROMOCIONES_COD);
+                    
                     cmd.Parameters.AddWithValue("NUMERO_PROMOCION", NUMERO_PROMOCION);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -112,6 +112,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_promocion_producto", conexion);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", opromocionproducto.PRODUCTOS_COD);
+                    cmd.Parameters.AddWithValue("PROMOCIONES_COD", opromocionproducto.PROMOCIONES_COD);
                     cmd.Parameters.AddWithValue("FECHA_INICIO", opromocionproducto.FECHA_INICIO);
                     cmd.Parameters.AddWithValue("FECHA_FINAL", opromocionproducto.FECHA_FINAL);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -129,7 +131,7 @@ namespace ProyectoFinal.Datos
 
         //READ BY
         //Reemplazar el (int ----) por la primary que vaya
-        public PromocionProducto Obtener(int PROMOCIONES_COD, int NUMERO_PROMOCION)
+        public PromocionProducto Obtener(int NUMERO_PROMOCION)
         {
             var opromocionproducto = new PromocionProducto();
             var cn = new Conexion();
@@ -139,8 +141,6 @@ namespace ProyectoFinal.Datos
                 conexion.Open();
                 //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                 SqlCommand cmd = new SqlCommand("sp_obtener_promocion_producto", conexion);
-                cmd.Parameters.AddWithValue("PROMOCIONES_COD", PROMOCIONES_COD);
-                
                 cmd.Parameters.AddWithValue("NUMERO_PROMOCION", NUMERO_PROMOCION);
                 cmd.CommandType = CommandType.StoredProcedure;
 

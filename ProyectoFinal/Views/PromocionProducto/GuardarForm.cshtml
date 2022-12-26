@@ -1,0 +1,38 @@
+﻿@model PromocionProducto
+<!--Definen el tipo de modelo-->
+@{
+    ViewData["Title"] = "GuardarForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Promociones
+    </div>
+    <div class="card-body">
+        <form asp-action="GuardarForm" asp-controller="PromocionProducto" method="post">
+            <div class="mb-3">
+                <label class="form-label">Fecha inicio</label>
+                <input asp-for="FECHA_INICIO" type="date" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha final</label>
+                <input asp-for="FECHA_FINAL" type="date" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Producto codigo</label>
+                <input asp-for="PRODUCTOS_COD" type="number" class="form-control">
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Promocion codigo</label>
+                <input asp-for="PROMOCIONES_COD" type="number" class="form-control">
+            </div>
+
+            <button asp-action="GuardarForm" asp-controller="ProductoPromocion" type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="PromocionProducto" class="btn btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
