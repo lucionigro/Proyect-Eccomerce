@@ -17,15 +17,15 @@
     <div class="container">
         <div class="login-left">
             <div class="center">
-                <h1>Bienvenido</h1>
-                <p>Porfavor ingrese sus credenciales</p></>
+                <h1>¡Bienvenido!</h1>
+                <p>Por favor ingrese sus credenciales.</p></>
                 <form method="post" asp-controller="Acceso" asp-action="Login" id="form">
                     <div class="mb-3" id="mail">
-                        <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+                        <label for="exampleInputEmail1" class="form-label">Correo electronico:</label>
                         <input asp-for="CORREO" type="email" class="form-control">
                     </div>
                     <div class="mb-3" id="contraseña">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                        <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
                         <input asp-for="CONTRASENIA" type="password" class="form-control">
                     </div>
                     <button  id="botondelogin" type="submit" value="Log in" class="btn btn-primary" asp-action="Login" asp-controller="Acceso">Iniciar Sesion</button>

@@ -3,3 +3,12 @@
 .card {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+h3 {
+    text-align: center;
+}
+
+
+#fotogamer, #fotoenvio {
+    width: 750px;    
+}
