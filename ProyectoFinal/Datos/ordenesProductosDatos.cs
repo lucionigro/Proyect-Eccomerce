@@ -28,14 +28,13 @@ namespace ProyectoFinal.Datos
                         {
                             //reemplazen por los valores de la columna, sea string o int
                             //ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),
-
                             ORDENESPRODUCTOSCOD = Convert.ToInt32(dr["ORDENESPRODUCTOSCOD"]),
-
-                            PRECIOCOMPRA = (float)Convert.ToDecimal(dr["PRECIOCOMPRA"]),
-
+                            ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]),
+                            PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_COD"]),
                             CANTIDADPRODUCTO = Convert.ToInt32(dr["CANTIDADPRODUCTO"]),
+                            PRECIOCOMPRA = Convert.ToInt32(dr["PRECIOCOMPRA"]),
 
-                            
+
 
                         });
                 }
@@ -57,7 +56,8 @@ namespace ProyectoFinal.Datos
                     conexion.Open();
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_editar_ordenes_productos", conexion);
-                    //cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", OordenesProductos.PRODUCTOS_COD);
                     cmd.Parameters.AddWithValue("ORDENESPRODUCTOSCOD", OordenesProductos.ORDENESPRODUCTOSCOD);
                     cmd.Parameters.AddWithValue("PRECIOCOMPRA", OordenesProductos.PRECIOCOMPRA);
                     cmd.Parameters.AddWithValue("CANTIDADPRODUCTO", OordenesProductos.CANTIDADPRODUCTO);
@@ -120,6 +120,8 @@ namespace ProyectoFinal.Datos
                     //en la linea de codigo de abajo, adentro del ("") va el nombre del procedimiento armado especificamente para la tabla
                     SqlCommand cmd = new SqlCommand("sp_guardar_ordenes_prodcutos", conexion);
                     //cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("ORDENES_COD", OordenesProductos.ORDENES_COD);
+                    cmd.Parameters.AddWithValue("PRODUCTOS_COD", OordenesProductos.PRODUCTOS_COD);
                     cmd.Parameters.AddWithValue("PRECIOCOMPRA", OordenesProductos.PRECIOCOMPRA);
                     cmd.Parameters.AddWithValue("CANTIDADPRODUCTO", OordenesProductos.CANTIDADPRODUCTO);
                    
@@ -155,9 +157,10 @@ namespace ProyectoFinal.Datos
                 {
                     while (dr.Read())
                     {
-                        //OordenesProductos.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);
+                        OordenesProductos.ORDENES_COD = Convert.ToInt32(dr["ORDENES_COD"]);
+                        OordenesProductos.PRODUCTOS_COD = Convert.ToInt32(dr["PRODUCTOS_COD"]);
                         OordenesProductos.ORDENESPRODUCTOSCOD = Convert.ToInt32(dr["ORDENESPRODUCTOSCOD"]);
-                        OordenesProductos.PRECIOCOMPRA = (float)Convert.ToDecimal(dr["PRECIOCOMPRA"]);
+                        OordenesProductos.PRECIOCOMPRA = Convert.ToInt32(dr["PRECIOCOMPRA"]);
                         OordenesProductos.CANTIDADPRODUCTO = Convert.ToInt32(dr["CANTIDADPRODUCTO"]);
                         
                     }

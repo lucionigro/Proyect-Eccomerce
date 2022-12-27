@@ -1,0 +1,58 @@
+﻿@model List<OrdenesProductos>
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos{
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de Ordenes Productos
+    </div>
+    <div class="card-body">
+        <a asp-action="GuardarForm" asp-controller="OrdenesProductos" class="btn btn-success">Crear nuevo</a>
+        <hr />
+        <table id="tb_ordenesproductos" class="display" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th>Orden Producto</th>
+                    <th>Orden Codigo</th>
+                    <th>Producto Codigo</th>
+                    <th>Cantidad Producto</th>
+                    <th>Precio de Compra</th>
+                    <th>Funciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ORDENESPRODUCTOSCOD</td>
+                        <td>@item.ORDENES_COD</td>
+                        <td>@item.PRODUCTOS_COD</td>
+                        <td>@item.CANTIDADPRODUCTO</td>
+                        <td>@item.PRECIOCOMPRA</td>
+                        
+                        <td>
+                            <a asp-action="Editar" asp-controller="OrdenesProductos" class="btn-primary btn-sm" asp-route-id="@item.ORDENESPRODUCTOSCOD"><img src="~/img/pencil-square.svg" /></a>
+                            <a asp-action="Eliminar" asp-controller="OrdenesProductos" class="btn-danger btn-sm" asp-route-id="@item.ORDENESPRODUCTOSCOD"><img src="~/img/trash-fill.svg" /></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tb_ordenesproductos').DataTable();
+        });
+    </script>
+}

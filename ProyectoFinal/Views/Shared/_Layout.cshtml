@@ -25,11 +25,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Logout">Cuenta</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Productos" asp-action="Index">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Logout">Cuenta</a>
                         </li>
                     </ul>
                 </div>
@@ -61,7 +62,10 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Ordenes" asp-action="Listar">Ordenes</a>
-                            </li>  
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="OrdenesProductos" asp-action="Listar">Ordenes prod</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
